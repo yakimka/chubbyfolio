@@ -123,3 +123,12 @@ USE_TZ = True
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+REST_FRAMEWORK = {
+    'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
+    'DATETIME_INPUT_FORMATS': '%Y-%m-%d %H:%M:%S',
+    'DATE_FORMAT': '%Y-%m-%d',
+    'DATE_INPUT_FORMAT': '%Y-%m-%d',
+    'TIME_FORMAT': '%H:%M:%S',
+    'TIME_INPUT_FORMAT': '%H:%M:%S',
+}
