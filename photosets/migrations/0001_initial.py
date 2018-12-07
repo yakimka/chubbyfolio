@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(blank=True, max_length=1024, verbose_name='название')),
                 ('description', models.TextField(blank=True, verbose_name='описание')),
-                ('image', models.ImageField(upload_to=photosets.models.upload_to, verbose_name='изображение')),
+                ('image', models.ImageField(upload_to=photosets.models.upload_photosets_to, verbose_name='изображение')),
             ],
         ),
         migrations.CreateModel(
