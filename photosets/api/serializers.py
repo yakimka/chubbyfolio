@@ -11,10 +11,11 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 
 class PhotosetSerializer(serializers.ModelSerializer):
-    photos = PhotoSerializer(many=True)
-    date_created = serializers.DateTimeField()
-
     class Meta:
         model = Photoset
-        fields = ('id', 'name', 'description', 'published', 'photos',
-                  'date_created', 'date_updated')
+        fields = ('id', 'name', 'description', 'preview', 'show_on_mainpage',
+                  'published', 'date_created', 'date_updated')
+
+
+class FilterPhotosetsSerializer(serializers.Serializer):
+    show_on_mainpage = serializers.NullBooleanField(required=False)
