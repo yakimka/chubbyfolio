@@ -2,7 +2,7 @@ from rest_framework import generics
 
 from photosets.api.serializers import PhotosetSerializer, FilterPhotosetsSerializer, \
     PhotoSerializer
-from photosets.models import Photoset
+from photosets.models import Photoset, Photo
 
 
 class PhotosetList(generics.ListAPIView):
@@ -24,7 +24,7 @@ class PhotoList(generics.ListAPIView):
 
     def get_queryset(self):
         pk = self.kwargs.get('pk')
-        return Photoset.objects.get(pk=pk).photos
+        return Photo.objects.filter(photoset__pk=pk)
 
 
 class PhotosetDetail(generics.RetrieveAPIView):

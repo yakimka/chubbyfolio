@@ -130,12 +130,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 REST_FRAMEWORK = {
+    # Specify date format
     'DATETIME_FORMAT': '%Y-%m-%d %H:%M:%S',
     'DATETIME_INPUT_FORMATS': '%Y-%m-%d %H:%M:%S',
     'DATE_FORMAT': '%Y-%m-%d',
     'DATE_INPUT_FORMAT': '%Y-%m-%d',
     'TIME_FORMAT': '%H:%M:%S',
     'TIME_INPUT_FORMAT': '%H:%M:%S',
+    # Pagination
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 30
 }
 
 CORS_ORIGIN_WHITELIST = (
