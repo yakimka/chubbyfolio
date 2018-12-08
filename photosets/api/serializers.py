@@ -11,9 +11,11 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 
 class PhotosetSerializer(serializers.ModelSerializer):
+    cover = serializers.ImageField()
+
     class Meta:
         model = Photoset
-        fields = ('id', 'name', 'description', 'preview', 'show_on_mainpage',
+        fields = ('id', 'name', 'description', 'cover', 'preview', 'show_on_mainpage',
                   'published', 'date_created', 'date_updated')
 
 

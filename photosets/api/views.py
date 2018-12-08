@@ -6,7 +6,9 @@ from photosets.models import Photoset, Photo
 
 
 class PhotosetList(generics.ListAPIView):
-    queryset = Photoset.objects.filter(published=True)
+    # Select all published photosets
+    # and photosets with at least one photo
+    queryset = Photoset.objects.filter(published=True).exclude(photos=None)
     serializer_class = PhotosetSerializer
 
     def get_queryset(self):

@@ -34,6 +34,11 @@ class Photoset(models.Model):
             raise ValidationError(_('Фотосет должен содержать "Превью для главной"'))
         super().clean()
 
+    @property
+    def cover(self):
+        first_photo = self.photos.first()
+        return first_photo.image if first_photo else None
+
 
 class Photo(models.Model):
     name = models.CharField(max_length=1024, blank=True, verbose_name=_('название'))
