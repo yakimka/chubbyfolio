@@ -154,6 +154,7 @@ CORS_ORIGIN_WHITELIST = (
 
 THUMBNAIL_ALIASES = {
     '': {
-        'photo_thumb': {'size': (500, 500), 'crop': False, 'quality': 95},
+        '500x500': {'size': (500, 500), 'crop': False, 'quality': 95},
+        '600x675c': {'size': (600, 675), 'crop': 'smart', 'quality': 95},
     },
 }

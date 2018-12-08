@@ -38,7 +38,7 @@ class Photoset(models.Model):
     @property
     def cover(self):
         first_photo = self.photos.first()
-        return first_photo.image['photo_thumb'] if first_photo else None
+        return first_photo.thumbnail if first_photo else None
 
 
 class Photo(models.Model):
@@ -56,4 +56,4 @@ class Photo(models.Model):
 
     @property
     def thumbnail(self):
-        return self.image['photo_thumb']
+        return self.image['600x675c']
