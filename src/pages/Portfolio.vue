@@ -41,23 +41,23 @@ export default {
   data() {
     return {
       portfolio: null,
-      photosets: null,
-      loading: true
+      photosets: null
     };
   },
   methods: {
     retrieveNextPage() {
-      this.loading = true;
+      this.$parent.$emit('spinner-state', true);
       axios.get(this.portfolio.next)
         .then(response => {
           this.portfolio = response.data;
           this.photosets = [...this.photosets, ...response.data.results];
           this.$delete(this.portfolio, 'results');
-          this.loading = false;
         })
         .catch(() => {
           alert('ERROR');
-          this.loading = false;
+        })
+        .then(() => {
+          this.$parent.$emit('spinner-state', false);
         });
     }
   },
@@ -72,11 +72,12 @@ export default {
         this.portfolio = response.data;
         this.photosets = JSON.parse(JSON.stringify(response.data.results));
         this.$delete(this.portfolio, 'results');
-        this.loading = false;
       })
       .catch(() => {
         alert('ERROR');
-        this.loading = false;
+      })
+      .then(() => {
+        this.$parent.$emit('spinner-state', false);
       });
   }
 };

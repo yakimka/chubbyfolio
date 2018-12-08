@@ -6,18 +6,30 @@ export default {
   components: {
     NavBar,
     FooterBar
+  },
+  data() {
+    return {
+      loading: true
+    };
+  },
+  created() {
+    this.$on('spinner-state', function (state) {
+      this.loading = state;
+    });
   }
 };
 </script>
 
 <template>
   <div>
-    <nav-bar />
+    <top-page :loading="loading"></top-page>
+
+    <nav-bar/>
 
     <div class="container">
-      <slot />
+      <slot/>
     </div>
 
-    <footer-bar />
+    <footer-bar/>
   </div>
 </template>

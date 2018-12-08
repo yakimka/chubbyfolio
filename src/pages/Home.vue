@@ -212,7 +212,6 @@ import Api from '@/Api';
 export default {
   data() {
     return {
-      loading: true,
       photosets: null
     };
   },
@@ -231,11 +230,12 @@ export default {
     Api.getPhotosetsForMainPage()
       .then(response => {
         this.photosets = response.data.results;
-        this.loading = false;
       })
       .catch(() => {
         alert('ERROR');
-        this.loading = false;
+      })
+      .then(() => {
+        this.$parent.$emit('spinner-state', false);
       });
   }
 };

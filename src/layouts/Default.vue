@@ -8,26 +8,38 @@ export default {
     NavBar,
     SideBar,
     FooterBar
+  },
+  data() {
+    return {
+      loading: true
+    };
+  },
+  created() {
+    this.$on('spinner-state', function (state) {
+      this.loading = state;
+    });
   }
 };
 </script>
 
 <template>
   <div>
-    <nav-bar />
+    <top-page :loading="loading"></top-page>
+
+    <nav-bar/>
 
     <div class="container section">
       <div class="columns">
         <div class="column is-8">
-          <slot />
+          <slot/>
         </div>
 
         <div class="column is-4">
-          <side-bar />
+          <side-bar/>
         </div>
       </div>
     </div>
 
-    <footer-bar />
+    <footer-bar/>
   </div>
 </template>

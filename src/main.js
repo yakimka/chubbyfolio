@@ -10,6 +10,7 @@ import Default from './layouts/Default.vue';
 import NoSidebar from './layouts/NoSidebar.vue';
 import Landing from './layouts/Landing.vue';
 import Portfolio from './layouts/Portfolio.vue';
+import TopPage from './components/TopPage';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/scss/style.scss';
@@ -28,6 +29,7 @@ Vue.component('default-layout', Default);
 Vue.component('no-sidebar-layout', NoSidebar);
 Vue.component('landing-layout', Landing);
 Vue.component('portfolio-layout', Portfolio);
+Vue.component('top-page', TopPage);
 
 Vue.config.productionTip = false;
 

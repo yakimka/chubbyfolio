@@ -1,5 +1,5 @@
 <template>
-  <div id="exboo">
+  <div>
     <!-- ****** Gallery Area Start ****** -->
     <section class="sonar-projects-area" id="projects">
       <div class="container-fluid">
@@ -40,23 +40,23 @@ export default {
   data() {
     return {
       photoset: null,
-      photos: null,
-      loading: true
+      photos: null
     };
   },
   methods: {
     retrieveNextPage() {
-      this.loading = true;
+      this.$parent.$emit('spinner-state', true);
       axios.get(this.photoset.next)
         .then(response => {
           this.photoset = response.data;
           this.photos = [...this.photos, ...response.data.results];
           this.$delete(this.photoset, 'results');
-          this.loading = false;
         })
         .catch(() => {
           alert('ERROR');
-          this.loading = false;
+        })
+        .then(() => {
+          this.$parent.$emit('spinner-state', false);
         });
     }
   },
@@ -71,11 +71,12 @@ export default {
         this.photoset = response.data;
         this.photos = JSON.parse(JSON.stringify(response.data.results));
         this.$delete(this.photoset, 'results');
-        this.loading = false;
       })
       .catch(() => {
         alert('ERROR');
-        this.loading = false;
+      })
+      .then(() => {
+        this.$parent.$emit('spinner-state', false);
       });
   }
 };
