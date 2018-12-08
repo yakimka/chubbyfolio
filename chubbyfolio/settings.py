@@ -139,7 +139,7 @@ REST_FRAMEWORK = {
     'TIME_INPUT_FORMAT': '%H:%M:%S',
     # Pagination
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 30
+    'PAGE_SIZE': 36
 }
 
 CORS_ORIGIN_WHITELIST = (
