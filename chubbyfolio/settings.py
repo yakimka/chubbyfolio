@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
+    'easy_thumbnails',
+    'django_extensions',
 
     'photosets',
 ]
@@ -80,8 +82,12 @@ WSGI_APPLICATION = 'chubbyfolio.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'chubbyfolio',
+        'USER': 'chubbyfolio',
+        'PASSWORD': '',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -145,3 +151,9 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_WHITELIST = (
     'localhost:8080',
 )
+
+THUMBNAIL_ALIASES = {
+    '': {
+        'photo_thumb': {'size': (500, 500), 'crop': False, 'quality': 95},
+    },
+}

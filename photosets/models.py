@@ -1,6 +1,7 @@
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext as _
+from easy_thumbnails.fields import ThumbnailerImageField
 
 
 def upload_photosets_to(instance, filename):
@@ -37,13 +38,13 @@ class Photoset(models.Model):
     @property
     def cover(self):
         first_photo = self.photos.first()
-        return first_photo.image if first_photo else None
+        return first_photo.image['photo_thumb'] if first_photo else None
 
 
 class Photo(models.Model):
     name = models.CharField(max_length=1024, blank=True, verbose_name=_('название'))
     description = models.TextField(blank=True, verbose_name=_('описание'))
-    image = models.ImageField(upload_to=upload_photosets_to, verbose_name=_('изображение'))
+    image = ThumbnailerImageField(upload_to=upload_photosets_to, verbose_name=_('изображение'))
     photoset = models.ForeignKey(Photoset, related_name='photos', null=True,
                                  on_delete=models.CASCADE,
                                  verbose_name=_('фотосет'))
@@ -52,3 +53,7 @@ class Photo(models.Model):
 
     def __str__(self):
         return self.name or self.image.url.split('/')[-1]
+
+    @property
+    def thumbnail(self):
+        return self.image['photo_thumb']

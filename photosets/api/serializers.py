@@ -4,9 +4,11 @@ from photosets.models import Photoset, Photo
 
 
 class PhotoSerializer(serializers.ModelSerializer):
+    thumbnail = serializers.ImageField()
+
     class Meta:
         model = Photo
-        fields = ('id', 'name', 'description', 'image',
+        fields = ('id', 'name', 'description', 'image', 'thumbnail',
                   'date_created', 'date_updated')
 
 

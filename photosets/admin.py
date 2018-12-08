@@ -10,9 +10,11 @@ class PhotoInline(admin.TabularInline):
 
 @admin.register(Photoset)
 class PhotosetAdmin(admin.ModelAdmin):
-    inlines = [
-        PhotoInline,
-    ]
+    inlines = [PhotoInline]
+    list_display = ('id', 'name', 'show_on_mainpage', 'date_created')
+    list_display_links = ('id', 'name')
+    list_editable = ('show_on_mainpage',)
+    ordering = ('date_created',)
 
     def save_model(self, request, obj, form, change):
         obj.save()
