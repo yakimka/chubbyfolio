@@ -74,6 +74,7 @@ export default {
     }
   },
   created() {
+    this.$parent.$emit('spinner-state', true);
     Api.getPhotos(this.$route.params.id)
       .then(response => {
         this.photoset = response.data;

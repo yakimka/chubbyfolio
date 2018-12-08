@@ -67,6 +67,7 @@ export default {
     }
   },
   created() {
+    this.$parent.$emit('spinner-state', true);
     Api.getPhotosets()
       .then(response => {
         this.portfolio = response.data;

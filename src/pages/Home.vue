@@ -227,6 +227,7 @@ export default {
     }
   },
   created() {
+    this.$parent.$emit('spinner-state', true);
     Api.getPhotosetsForMainPage()
       .then(response => {
         this.photosets = response.data.results;
