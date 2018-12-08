@@ -2,6 +2,8 @@
 @import 'variables';
 @import 'mixin';
 @import 'responsive';
+$animationDuration: 0.5s;
+@import "../../../node_modules/vue2-animate/src/sass/vue2-animate.scss";
 
 /* :: Import Fonts */
 
@@ -1112,6 +1114,9 @@ img {
                 margin-bottom: 0;
             }
         }
+      img {
+        cursor: pointer;
+      }
     }
 }
 

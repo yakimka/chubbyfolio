@@ -7,3 +7,11 @@
     </p>
   </div>
 </template>
+
+<script>
+export default {
+  created() {
+    this.$parent.$emit('spinner-state', false);
+  }
+};
+</script>

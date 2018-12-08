@@ -3,16 +3,24 @@
     <!-- ****** Gallery Area Start ****** -->
     <section class="sonar-projects-area" id="projects">
       <div class="container-fluid">
-        <div class="row sonar-portfolio">
+        <div class="row sonar-portfolio"
+             v-viewer="{
+             movable: false,
+             url: 'url',
+             'rotatable': false,
+             'scalable': false,
+             'title': false
+             }">
 
           <!-- Single gallery Item -->
           <div
             class="col-12 col-sm-6 col-lg-3 single_gallery_item landscapes studio wow fadeInUpBig"
             data-wow-delay="300ms"
-            v-for="photo in photos" :key="photo.id">
-            <a class="gallery-img" :href="photo.image">
-              <img :src="photo.thumbnail" :alt="photo.name">
-            </a>
+            v-for="photo in photos"
+            :key="photo.id">
+            <!--<a class="gallery-img" :href="photo.image" @click.prevent>-->
+            <img :src="photo.thumbnail" :url="photo.image" :alt="photo.name">
+            <!--</a>-->
             <!-- Gallery Content -->
             <div class="gallery-content">
               <h4>{{ photo.name }}</h4>
