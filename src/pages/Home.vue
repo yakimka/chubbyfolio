@@ -61,11 +61,11 @@
           <div class="col-12 col-md-5">
             <div class="single-portfolio-item mt-100 portfolio-item-1 wow fadeIn">
               <div class="backend-content">
-                <img class="dots" src="../assets/img/core-img/dots.png" alt="">
+                <img class="dots" src="/static/img/core-img/dots.png" alt="">
                 <h2>Reality</h2>
               </div>
               <div class="portfolio-thumb">
-                <img src="../assets/img/bg-img/p1.png" alt="">
+                <img src="/static/img/bg-img/p1.png" alt="">
               </div>
               <div class="portfolio-meta">
                 <p class="portfolio-date">Feb 02, 2018</p>
@@ -77,10 +77,10 @@
           <div class="col-12 col-md-6">
             <div class="single-portfolio-item mt-230 portfolio-item-2 wow fadeIn">
               <div class="backend-content">
-                <img class="dots" src="../assets/img/core-img/dots.png" alt="">
+                <img class="dots" src="/static/img/core-img/dots.png" alt="">
               </div>
               <div class="portfolio-thumb">
-                <img src="../assets/img/bg-img/p2.png" alt="">
+                <img src="/static/img/bg-img/p2.png" alt="">
               </div>
               <div class="portfolio-meta">
                 <p class="portfolio-date">Feb 02, 2018</p>
@@ -95,11 +95,11 @@
           <div class="col-12 col-md-10">
             <div class="single-portfolio-item mt-100 portfolio-item-3 wow fadeIn">
               <div class="backend-content">
-                <img class="dots" src="../assets/img/core-img/dots.png" alt="">
+                <img class="dots" src="/static/img/core-img/dots.png" alt="">
                 <h2>Photography</h2>
               </div>
               <div class="portfolio-thumb">
-                <img src="../assets/img/bg-img/p3.png" alt="">
+                <img src="/static/img/bg-img/p3.png" alt="">
               </div>
               <div class="portfolio-meta">
                 <p class="portfolio-date">Feb 02, 2018</p>
@@ -114,10 +114,10 @@
           <div class="col-12 col-md-6">
             <div class="single-portfolio-item portfolio-item-4 wow fadeIn">
               <div class="backend-content">
-                <img class="dots" src="../assets/img/core-img/dots.png" alt="">
+                <img class="dots" src="/static/img/core-img/dots.png" alt="">
               </div>
               <div class="portfolio-thumb">
-                <img src="../assets/img/bg-img/p2.png" alt="">
+                <img src="/static/img/bg-img/p2.png" alt="">
               </div>
               <div class="portfolio-meta">
                 <p class="portfolio-date">Feb 02, 2018</p>
@@ -132,11 +132,11 @@
           <div class="col-12 col-md-5">
             <div class="single-portfolio-item portfolio-item-5 wow fadeIn">
               <div class="backend-content">
-                <img class="dots" src="../assets/img/core-img/dots.png" alt="">
+                <img class="dots" src="/static/img/core-img/dots.png" alt="">
                 <h2>Hope</h2>
               </div>
               <div class="portfolio-thumb">
-                <img src="../assets/img/bg-img/p5.png" alt="">
+                <img src="/static/img/bg-img/p5.png" alt="">
               </div>
               <div class="portfolio-meta">
                 <p class="portfolio-date">Feb 02, 2018</p>
@@ -151,7 +151,7 @@
           <div class="col-12 col-md-4">
             <div class="single-portfolio-item portfolio-item-6 wow fadeIn">
               <div class="portfolio-thumb">
-                <img src="../assets/img/bg-img/p6.png" alt="">
+                <img src="/static/img/bg-img/p6.png" alt="">
               </div>
               <div class="portfolio-meta">
                 <p class="portfolio-date">Feb 02, 2018</p>
@@ -166,11 +166,11 @@
           <div class="col-12 col-md-4">
             <div class="single-portfolio-item portfolio-item-7 wow fadeIn">
               <div class="backend-content">
-                <img class="dots" src="../assets/img/core-img/dots.png" alt="">
+                <img class="dots" src="/static/img/core-img/dots.png" alt="">
                 <h2>Future</h2>
               </div>
               <div class="portfolio-thumb">
-                <img src="../assets/img/bg-img/p7.png" alt="">
+                <img src="/static/img/bg-img/p7.png" alt="">
               </div>
               <div class="portfolio-meta">
                 <p class="portfolio-date">Feb 02, 2018</p>
