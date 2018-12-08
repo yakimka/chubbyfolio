@@ -10,8 +10,8 @@
             class="col-12 col-sm-6 col-lg-3 single_gallery_item landscapes studio wow fadeInUpBig"
             data-wow-delay="300ms"
             v-for="photo in photos" :key="photo.id">
-            <a class="gallery-img" :href="photo.cover">
-              <img :src="photo.image" :alt="photo.name">
+            <a class="gallery-img" :href="photo.image">
+              <img :src="photo.thumbnail" :alt="photo.name">
             </a>
             <!-- Gallery Content -->
             <div class="gallery-content">
