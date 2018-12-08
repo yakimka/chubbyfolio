@@ -999,3 +999,158 @@ img {
         }
     }
 }
+
+/* :: Hero Area (Portfolio page) CSS */
+
+.hero-area {
+    background-color: $bg-default;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    @include flex-wrap(wrap);
+    .backEnd-content {
+        .dots {
+            position: absolute;
+            right: -200px;
+            top: 50%;
+            z-index: -2;
+            opacity: 0.1;
+            @include transform(translateY(-50%));
+        }
+    }
+
+    .hero-thumbnail,
+    .hero-content {
+        @include flex(0 0 50%);
+        min-width: 50%;
+        position: relative;
+        z-index: 1;
+        @media #{$breakpoint-xs} {
+            @include flex(0 0 100%);
+            min-width: 100%;
+        }
+    }
+    .hero-content {
+        height: 880px;
+        padding: 100px 0;
+        .line {
+            width: 100px;
+            height: 1px;
+            background-color: $color-white;
+            margin-bottom: 30px;
+            display: block;
+        }
+        h2 {
+            color: $color-white;
+            font-size: 48px;
+            margin-bottom: 25px;
+            @media #{$breakpoint-lg} {
+                font-size: 40px;
+            }
+            @media #{$breakpoint-md} {
+                font-size: 30px;
+            }
+            @media #{$breakpoint-xs} {
+                font-size: 30px;
+            }
+        }
+        p {
+            color: $color-white;
+            margin-bottom: 30px;
+        }
+        &.aboutUs {
+            height: 1100px;
+            @media #{$breakpoint-xs} {
+                height: auto;
+            }
+        }
+        @media #{$breakpoint-xs} {
+            height: auto;
+        }
+    }
+    .hero-thumbnail {
+        &.aboutUs {
+            &::before {
+                position: absolute;
+                width: 100%;
+                height: 100px;
+                bottom: 0;
+                left: 0;
+                background-color: $color-white;
+                content: '';
+                z-index: 1;
+                @media #{$breakpoint-xs} {
+                    display: none;
+                }
+            }
+        }
+        @media #{$breakpoint-xs} {
+            height: 400px;
+        }
+    }
+}
+
+/* :: Portfolio Area CSS */
+
+.sonar-projects-area {
+    position: relative;
+    z-index: 1;
+    padding: 100px 35px 50px;
+    .single_gallery_item {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 50px;
+        .gallery-content {
+            padding-top: 30px;
+            h4 {
+                margin-bottom: 10px;
+                @media #{$breakpoint-xs} {
+                    font-size: 20px;
+                }
+            }
+            p {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+.sonar-portfolio-menu {
+    position: absolute;
+    bottom: 40px;
+    right: 0;
+    width: 50%;
+    z-index: 100;
+    .btn {
+        padding: 5px 0;
+        border: none;
+        border-bottom: 2px solid;
+        border-color: transparent;
+        background-color: transparent;
+        color: $color-white;
+        border-radius: 0;
+        margin: 0 20px;
+        &.active {
+            border-color: $color-white;
+        }
+        &:hover,
+        &:focus {
+            box-shadow: none;
+        }
+        @media #{$breakpoint-lg} {
+            margin: 0 10px;
+        }
+        @media #{$breakpoint-md} {
+            margin: 0 5px;
+            font-size: 14px;
+        }
+        @media #{$breakpoint-xs} {
+            margin: 0 5px;
+            font-size: 14px;
+        }
+    }
+    @media #{$breakpoint-xs} {
+        width: 100%;
+        bottom: 20px;
+    }
+}

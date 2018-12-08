@@ -219,8 +219,7 @@ export default {
   components: {carousel},
   methods: {
     redirectToPhotoset(id) {
-      // TODO change page name
-      this.$router.push({name: 'about'});
+      this.$router.push({name: 'photoset', params: {id: id}});
     }
   },
   computed: {

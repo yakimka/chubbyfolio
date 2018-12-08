@@ -22,6 +22,7 @@
     "node-sass": "^4.10.0",
     "sass-loader": "^7.1.0",
     "vue": "^2.5.2",
+    "vue-match-heights": "^0.1.1",
     "vue-owl-carousel": "^2.0.3",
     "vue-router": "^3.0.1"
   },

@@ -24,16 +24,23 @@ export default new Router({
       component: require('@/pages/Home.vue').default // load sync home
     },
     {
-      path: '/about-us',
+      path: '/portfolio',
+      name: 'portfolio',
+      meta: {layout: 'portfolio'},
+      component: () => import('@/pages/Portfolio.vue')
+    },
+    {
+      path: '/photoset/:id',
+      name: 'photoset',
+      meta: {layout: 'portfolio'},
+      component: () => import('@/pages/Photoset.vue')
+    },
+    {
+      path: '/about-me',
       name: 'about',
       meta: {layout: 'no-sidebar'},
       component: () => import('@/pages/About.vue')
     },
-    // {
-    //   path: '/story/:id',
-    //   name: 'post',
-    //   component: () => import('@/pages/Post.vue')
-    // },
     {
       path: '*',
       name: '404*',

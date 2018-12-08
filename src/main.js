@@ -5,9 +5,11 @@ import App from './App';
 import router from './router';
 
 import BootstrapVue from 'bootstrap-vue';
+import VueMatchHeights from 'vue-match-heights';
 import Default from './layouts/Default.vue';
 import NoSidebar from './layouts/NoSidebar.vue';
 import Landing from './layouts/Landing.vue';
+import Portfolio from './layouts/Portfolio.vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/scss/style.scss';
@@ -21,9 +23,11 @@ library.add(fas, fab);
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
 Vue.use(BootstrapVue);
+Vue.use(VueMatchHeights);
 Vue.component('default-layout', Default);
 Vue.component('no-sidebar-layout', NoSidebar);
 Vue.component('landing-layout', Landing);
+Vue.component('portfolio-layout', Portfolio);
 
 Vue.config.productionTip = false;
 

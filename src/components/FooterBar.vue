@@ -11,7 +11,7 @@
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               Copyright &copy;{{ new Date().getFullYear() }}
               All rights reserved | This template is made with <font-awesome-icon :icon="['fas', 'heart']"/> by
-              <a href="https://colorlib.com" target="_blank">Colorlib</a> | Edited by <a href="https://t.me/yakimka" target="_blank">yakimka</a>
+              <a href="https://colorlib.com" target="_blank">Colorlib</a> | Adapted by <a href="https://t.me/yakimka" target="_blank">yakimka</a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>

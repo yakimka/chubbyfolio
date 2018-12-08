@@ -8,12 +8,9 @@
             <!-- Logo Area  -->
             <div class="logo-area">
               <b-nav>
-                <b-nav-item :to="{name: 'home'}">
-                  Home
-                </b-nav-item>
-                <b-nav-item :to="{name: 'about'}">
-                  About
-                </b-nav-item>
+                <b-nav-item :to="{name: 'home'}">Home</b-nav-item>
+                <b-nav-item :to="{name: 'portfolio'}">Portfolio</b-nav-item>
+                <b-nav-item :to="{name: 'about'}">About</b-nav-item>
               </b-nav>
             </div>
 
