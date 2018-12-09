@@ -15,5 +15,10 @@ export default {
         show_on_mainpage: true
       }
     });
+  },
+  getPreferences(params = {}) {
+    return axios.get('/dynamic-settings/', {
+      params: params
+    });
   }
 };

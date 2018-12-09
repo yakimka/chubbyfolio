@@ -16,11 +16,11 @@
 
             <div class="menu-content-area d-flex align-items-center">
               <!-- Header Social Area -->
-              <div class="header-social-area d-flex align-items-center">
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Instagram">
+              <div class="header-social-area d-flex align-items-center" v-if="social">
+                <a :href="social.instagram_link" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Instagram" v-if="social.instagram_link">
                   <font-awesome-icon :icon="['fab', 'instagram']"/>
                 </a>
-                <a href="#" data-toggle="tooltip" data-placement="bottom" title="Facebook">
+                <a :href="social.facebook_link" target="_blank" data-toggle="tooltip" data-placement="bottom" title="Facebook" v-if="social.facebook_link">
                   <font-awesome-icon :icon="['fab', 'facebook']"/>
                 </a>
               </div>
@@ -36,10 +36,13 @@
 </template>
 
 <script>
+import Api from '@/Api';
+
 export default {
   data() {
     return {
-      scrollPosition: null
+      scrollPosition: null,
+      social: null
     };
   },
   methods: {
@@ -51,6 +54,12 @@ export default {
     isScrollOnTop: function () {
       return this.scrollPosition !== null && this.scrollPosition > 10;
     }
+  },
+  created() {
+    Api.getPreferences({section: 'social'})
+      .then(response => {
+        this.social = response.data;
+      });
   },
   mounted() {
     window.addEventListener('scroll', this.updateScroll);
