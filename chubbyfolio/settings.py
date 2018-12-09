@@ -37,12 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'dynamic_preferences',
     'rest_framework',
     'corsheaders',
     'easy_thumbnails',
     'django_extensions',
 
     'photosets',
+    'dynamic_settings',
 ]
 
 MIDDLEWARE = [
@@ -145,7 +147,10 @@ REST_FRAMEWORK = {
     'TIME_INPUT_FORMAT': '%H:%M:%S',
     # Pagination
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    'PAGE_SIZE': 36
+    'PAGE_SIZE': 36,
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.AllowAny',
+    ),
 }
 
 CORS_ORIGIN_WHITELIST = (

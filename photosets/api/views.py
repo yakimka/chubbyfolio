@@ -1,7 +1,7 @@
 from rest_framework import generics
 
-from photosets.api.serializers import PhotosetSerializer, FilterPhotosetsSerializer, \
-    PhotoSerializer
+from photosets.api.serializers import (
+    PhotosetSerializer, FilterPhotosetsSerializer, PhotoSerializer)
 from photosets.models import Photoset, Photo
 
 
