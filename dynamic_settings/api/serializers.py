@@ -1,3 +1,4 @@
+from django.utils import dateformat
 from rest_framework import serializers
 
 from dynamic_settings.models import MainScreenPhoto
@@ -8,7 +9,7 @@ class FilterSettingsSerializer(serializers.Serializer):
 
 
 class MainScreenPhotoSerializer(serializers.ModelSerializer):
-    date = serializers.DateField(format='%b %d, %Y')
+    date = serializers.SerializerMethodField()
     image = serializers.SerializerMethodField()
 
     class Meta:
@@ -19,7 +20,10 @@ class MainScreenPhotoSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         return request.build_absolute_uri(image.url)
 
+    def get_date(self, photo):
+        return dateformat.format(photo.date, 'F d, Y')
+
     def get_image(self, photo):
         photos = self.context.get('photos')
         order_number = next(i for i, j in enumerate(photos) if j.pk == photo.pk)
-        return self._get_absolute_url(photo.image['p{0}'.format(order_number+1)])
+        return self._get_absolute_url(photo.image['p{0}'.format(order_number + 1)])
