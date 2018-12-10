@@ -1,11 +1,11 @@
 <template>
   <div :class="className">
-    <div class="backend-content">
+    <div class="backend-content" v-if="backendContent">
       <img class="dots" src="/static/img/core-img/dots.png" alt="">
       <h2 v-if="word">{{word}}</h2>
     </div>
     <div class="portfolio-thumb">
-      <img :src="photo[`image_p${num}`]" alt="">
+      <img :src="photo[`image`]" alt="">
     </div>
     <div class="portfolio-meta">
       <p class="portfolio-date">{{photo.date}}</p>
@@ -19,13 +19,10 @@ export default {
   props: {
     className: {required: true},
     photo: {required: true},
-    word: {required: false}
-  },
-  computed: {
-    num: function () {
-      let str = this.className;
-      let n = str.indexOf('portfolio-item-');
-      return parseInt(str.substr(n + 15, 1));
+    word: {required: false},
+    backendContent: {
+      required: false,
+      default: true
     }
   }
 };

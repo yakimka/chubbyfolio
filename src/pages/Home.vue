@@ -104,7 +104,8 @@
             <!-- Single Portfoio Area -->
             <div class="col-12 col-md-4">
               <main-screen-photo class-name="single-portfolio-item portfolio-item-6 wow fadeIn"
-                                 :photo="mainScreenPhotos[5]"></main-screen-photo>
+                                 :photo="mainScreenPhotos[5]"
+                                 :backend-content="false"></main-screen-photo>
             </div>
           </div>
 
