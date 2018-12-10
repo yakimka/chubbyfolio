@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="hero-area">
+    <div class="hero-area" v-if="photosets && photosets.length > 3">
       <carousel class="hero-slides"
                 :items="4"
                 :margin="0"
@@ -56,126 +56,64 @@
           </div>
         </div>
 
-        <div class="row justify-content-between">
-          <!-- Single Portfoio Area -->
-          <div class="col-12 col-md-5">
-            <div class="single-portfolio-item mt-100 portfolio-item-1 wow fadeIn">
-              <div class="backend-content">
-                <img class="dots" src="/static/img/core-img/dots.png" alt="">
-                <h2>Reality</h2>
-              </div>
-              <div class="portfolio-thumb">
-                <img src="/static/img/bg-img/p1.png" alt="">
-              </div>
-              <div class="portfolio-meta">
-                <p class="portfolio-date">Feb 02, 2018</p>
-                <h2>Italy in the sunset</h2>
-              </div>
+        <div v-if="isHas7Photos">
+          <div class="row justify-content-between">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-5">
+              <main-screen-photo
+                class-name="single-portfolio-item mt-100 portfolio-item-1 wow fadeIn"
+                :photo="mainScreenPhotos[0]"
+                word="Reality"></main-screen-photo>
+            </div>
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-6">
+              <main-screen-photo
+                class-name="single-portfolio-item mt-230 portfolio-item-2 wow fadeIn"
+                :photo="mainScreenPhotos[1]"></main-screen-photo>
             </div>
           </div>
-          <!-- Single Portfoio Area -->
-          <div class="col-12 col-md-6">
-            <div class="single-portfolio-item mt-230 portfolio-item-2 wow fadeIn">
-              <div class="backend-content">
-                <img class="dots" src="/static/img/core-img/dots.png" alt="">
-              </div>
-              <div class="portfolio-thumb">
-                <img src="/static/img/bg-img/p2.png" alt="">
-              </div>
-              <div class="portfolio-meta">
-                <p class="portfolio-date">Feb 02, 2018</p>
-                <h2>Mountain Landscape</h2>
-              </div>
-            </div>
-          </div>
-        </div>
 
-        <div class="row">
-          <!-- Single Portfoio Area -->
-          <div class="col-12 col-md-10">
-            <div class="single-portfolio-item mt-100 portfolio-item-3 wow fadeIn">
-              <div class="backend-content">
-                <img class="dots" src="/static/img/core-img/dots.png" alt="">
-                <h2>Photography</h2>
-              </div>
-              <div class="portfolio-thumb">
-                <img src="/static/img/bg-img/p3.png" alt="">
-              </div>
-              <div class="portfolio-meta">
-                <p class="portfolio-date">Feb 02, 2018</p>
-                <h2>Foggy sunset over the lake</h2>
-              </div>
+          <div class="row">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-10">
+              <main-screen-photo
+                class-name="single-portfolio-item mt-100 portfolio-item-3 wow fadeIn"
+                :photo="mainScreenPhotos[2]"
+                word="Photography"></main-screen-photo>
             </div>
           </div>
-        </div>
 
-        <div class="row justify-content-end">
-          <!-- Single Portfoio Area -->
-          <div class="col-12 col-md-6">
-            <div class="single-portfolio-item portfolio-item-4 wow fadeIn">
-              <div class="backend-content">
-                <img class="dots" src="/static/img/core-img/dots.png" alt="">
-              </div>
-              <div class="portfolio-thumb">
-                <img src="/static/img/bg-img/p2.png" alt="">
-              </div>
-              <div class="portfolio-meta">
-                <p class="portfolio-date">Feb 02, 2018</p>
-                <h2>Clouds on mountain top</h2>
-              </div>
+          <div class="row justify-content-end">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-6">
+              <main-screen-photo class-name="single-portfolio-item portfolio-item-4 wow fadeIn"
+                                 :photo="mainScreenPhotos[3]"></main-screen-photo>
             </div>
           </div>
-        </div>
 
-        <div class="row">
-          <!-- Single Portfoio Area -->
-          <div class="col-12 col-md-5">
-            <div class="single-portfolio-item portfolio-item-5 wow fadeIn">
-              <div class="backend-content">
-                <img class="dots" src="/static/img/core-img/dots.png" alt="">
-                <h2>Hope</h2>
-              </div>
-              <div class="portfolio-thumb">
-                <img src="/static/img/bg-img/p5.png" alt="">
-              </div>
-              <div class="portfolio-meta">
-                <p class="portfolio-date">Feb 02, 2018</p>
-                <h2>Over the canion</h2>
-              </div>
+          <div class="row">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-5">
+              <main-screen-photo class-name="single-portfolio-item portfolio-item-5 wow fadeIn"
+                                 :photo="mainScreenPhotos[4]"
+                                 word="Hope"></main-screen-photo>
             </div>
           </div>
-        </div>
 
-        <div class="row justify-content-center">
-          <!-- Single Portfoio Area -->
-          <div class="col-12 col-md-4">
-            <div class="single-portfolio-item portfolio-item-6 wow fadeIn">
-              <div class="portfolio-thumb">
-                <img src="/static/img/bg-img/p6.png" alt="">
-              </div>
-              <div class="portfolio-meta">
-                <p class="portfolio-date">Feb 02, 2018</p>
-                <h2>Mirror lake</h2>
-              </div>
+          <div class="row justify-content-center">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-4">
+              <main-screen-photo class-name="single-portfolio-item portfolio-item-6 wow fadeIn"
+                                 :photo="mainScreenPhotos[5]"></main-screen-photo>
             </div>
           </div>
-        </div>
 
-        <div class="row justify-content-end">
-          <!-- Single Portfoio Area -->
-          <div class="col-12 col-md-4">
-            <div class="single-portfolio-item portfolio-item-7 wow fadeIn">
-              <div class="backend-content">
-                <img class="dots" src="/static/img/core-img/dots.png" alt="">
-                <h2>Future</h2>
-              </div>
-              <div class="portfolio-thumb">
-                <img src="/static/img/bg-img/p7.png" alt="">
-              </div>
-              <div class="portfolio-meta">
-                <p class="portfolio-date">Feb 02, 2018</p>
-                <h2>Mirror lake</h2>
-              </div>
+          <div class="row justify-content-end">
+            <!-- Single Portfoio Area -->
+            <div class="col-12 col-md-4">
+              <main-screen-photo class-name="single-portfolio-item portfolio-item-7 wow fadeIn"
+                                 :photo="mainScreenPhotos[6]"
+                                 word="Future"></main-screen-photo>
             </div>
           </div>
         </div>
@@ -212,7 +150,8 @@ import Api from '@/Api';
 export default {
   data() {
     return {
-      photosets: null
+      photosets: null,
+      mainScreenPhotos: null
     };
   },
   components: {carousel},
@@ -224,10 +163,13 @@ export default {
   computed: {
     isPhotosets: function () {
       return this.photosets !== null && this.photosets.length >= 4;
+    },
+    isHas7Photos: function () {
+      return this.mainScreenPhotos && this.mainScreenPhotos.length >= 7;
     }
   },
   created() {
-    this.$parent.$emit('spinner-state', true);
+    this.$parent.$emit('spinner-state', 2);
     Api.getPhotosetsForMainPage()
       .then(response => {
         this.photosets = response.data.results;
@@ -236,7 +178,17 @@ export default {
         alert('ERROR');
       })
       .then(() => {
-        this.$parent.$emit('spinner-state', false);
+        this.$parent.$emit('spinner-state', -1);
+      });
+    Api.getPreferences({section: 'main_screen_photos'})
+      .then(response => {
+        this.mainScreenPhotos = response.data;
+      })
+      .catch(() => {
+        alert('ERROR');
+      })
+      .then(() => {
+        this.$parent.$emit('spinner-state', -1);
       });
   }
 };

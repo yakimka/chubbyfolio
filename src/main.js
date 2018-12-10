@@ -12,14 +12,15 @@ import NoSidebar from './layouts/NoSidebar.vue';
 import Landing from './layouts/Landing.vue';
 import Portfolio from './layouts/Portfolio.vue';
 import TopPage from './components/TopPage';
+import MainScreenPhoto from './components/MainScreenPhoto';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import 'viewerjs/dist/viewer.css';
 import './assets/scss/style.scss';
-import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import {library} from '@fortawesome/fontawesome-svg-core';
+import {fas} from '@fortawesome/free-solid-svg-icons';
+import {fab} from '@fortawesome/free-brands-svg-icons';
+import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
 
 library.add(fas, fab);
 
@@ -33,6 +34,7 @@ Vue.component('no-sidebar-layout', NoSidebar);
 Vue.component('landing-layout', Landing);
 Vue.component('portfolio-layout', Portfolio);
 Vue.component('top-page', TopPage);
+Vue.component('main-screen-photo', MainScreenPhoto);
 
 Vue.config.productionTip = false;
 
