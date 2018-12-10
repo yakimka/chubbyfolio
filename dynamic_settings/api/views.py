@@ -15,7 +15,11 @@ class SettingsView(APIView):
             select={'link': 'raw_value'}
         ).values('name', 'link')
 
-        main_screen_photos_serializer = MainScreenPhotoSerializer(data=MainScreenPhoto.objects.all(), many=True, context={"request": request})
+        photos = MainScreenPhoto.objects.all()
+        main_screen_photos_serializer = MainScreenPhotoSerializer(
+            data=photos, many=True,
+            context={'request': request,
+                     'photos': list(photos)})
         main_screen_photos_serializer.is_valid()
         self.data = {
             'social': {pref['name']: pref['link'] for pref in social_prefs},

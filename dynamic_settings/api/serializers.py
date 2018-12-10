@@ -9,40 +9,17 @@ class FilterSettingsSerializer(serializers.Serializer):
 
 class MainScreenPhotoSerializer(serializers.ModelSerializer):
     date = serializers.DateField(format='%b %d, %Y')
-    image_p1 = serializers.SerializerMethodField()
-    image_p2 = serializers.SerializerMethodField()
-    image_p3 = serializers.SerializerMethodField()
-    image_p4 = serializers.SerializerMethodField()
-    image_p5 = serializers.SerializerMethodField()
-    image_p6 = serializers.SerializerMethodField()
-    image_p7 = serializers.SerializerMethodField()
+    image = serializers.SerializerMethodField()
 
     class Meta:
         model = MainScreenPhoto
-        fields = ['name', 'image_p1', 'image_p2', 'image_p3', 'image_p4',
-                  'image_p5', 'image_p6', 'image_p7', 'date', 'priority']
+        fields = ['name', 'image', 'date', 'priority']
 
     def _get_absolute_url(self, image):
         request = self.context.get('request')
         return request.build_absolute_uri(image.url)
 
-    def get_image_p1(self, photo):
-        return self._get_absolute_url(photo.image['p1'])
-
-    def get_image_p2(self, photo):
-        return self._get_absolute_url(photo.image['p2'])
-
-    def get_image_p3(self, photo):
-        return self._get_absolute_url(photo.image['p3'])
-
-    def get_image_p4(self, photo):
-        return self._get_absolute_url(photo.image['p4'])
-
-    def get_image_p5(self, photo):
-        return self._get_absolute_url(photo.image['p5'])
-
-    def get_image_p6(self, photo):
-        return self._get_absolute_url(photo.image['p6'])
-
-    def get_image_p7(self, photo):
-        return self._get_absolute_url(photo.image['p7'])
+    def get_image(self, photo):
+        photos = self.context.get('photos')
+        order_number = next(i for i, j in enumerate(photos) if j.pk == photo.pk)
+        return self._get_absolute_url(photo.image['p{0}'.format(order_number+1)])
