@@ -2,7 +2,8 @@ from dynamic_preferences.registries import global_preferences_registry
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from dynamic_settings.api.serializers import FilterSettingsSerializer
+from dynamic_settings.api.serializers import FilterSettingsSerializer, MainScreenPhotoSerializer
+from dynamic_settings.models import MainScreenPhoto
 
 
 class SettingsView(APIView):
@@ -13,8 +14,12 @@ class SettingsView(APIView):
             section='social').extra(  # just for experience
             select={'link': 'raw_value'}
         ).values('name', 'link')
+
+        main_screen_photos_serializer = MainScreenPhotoSerializer(data=MainScreenPhoto.objects.all(), many=True, context={"request": request})
+        main_screen_photos_serializer.is_valid()
         self.data = {
-            'social': {pref['name']: pref['link'] for pref in social_prefs}
+            'social': {pref['name']: pref['link'] for pref in social_prefs},
+            'main_screen_photos': main_screen_photos_serializer.data
         }
 
         return Response(self.filter_settings())
