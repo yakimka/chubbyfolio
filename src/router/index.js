@@ -36,6 +36,12 @@ export default new Router({
       component: () => import('@/pages/Photoset.vue')
     },
     {
+      path: '/contact-me',
+      name: 'contact',
+      meta: {layout: 'landing'},
+      component: () => import('@/pages/ContactMe.vue')
+    },
+    {
       path: '/about-me',
       name: 'about',
       meta: {layout: 'no-sidebar'},

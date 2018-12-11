@@ -1159,3 +1159,223 @@ img {
         bottom: 20px;
     }
 }
+
+/* :: Blog Area CSS */
+
+.sonar-blog-area,
+.sonar-contact-area {
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    .backEnd-content {
+        .dots {
+            position: absolute;
+            top: -50px;
+            right: -200px;
+        }
+    }
+}
+
+.single-blog-area {
+    position: relative;
+    z-index: 1;
+    .blog-post-thumbnail {
+        position: relative;
+        z-index: 1;
+        .post-date {
+            a {
+                position: absolute;
+                width: 45px;
+                height: auto;
+                padding: 15px 10px;
+                background-color: $color-dark;
+                top: -20px;
+                left: 25px;
+                font-weight: 100;
+                color: $color-white;
+                text-align: center;
+                line-height: 2;
+                font-size: 15px;
+                &:hover,
+                &:focus {
+                    font-weight: 100;
+                    font-size: 15px;
+                }
+            }
+        }
+    }
+    .post-content {
+        padding-top: 60px;
+        .headline {
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-weight: 300;
+            color: $heading-color;
+            &:hover,
+            &:focus {
+                font-weight: 300;
+            }
+        }
+        .post-meta {
+            margin-bottom: 50px;
+            a {
+                font-size: 12px;
+                font-weight: 500;
+                color: $heading-color;
+                &:hover,
+                &:focus {
+                    font-size: 12px;
+                    font-weight: 500;
+                }
+            }
+        }
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.search-widget-area {
+    form {
+        position: relative;
+        z-index: 1;
+        input {
+            width: 100%;
+            height: 42px;
+            font-size: 12px;
+            font-style: italic;
+            border: none;
+            border-radius: 0;
+            border-bottom: 2px solid #f3f4fa;
+            padding: 0 15px;
+            background-color: transparent;
+        }
+        button {
+            width: 50px;
+            height: 42px;
+            background-color: $bg-default;
+            color: $color-white;
+            font-size: 16px;
+            border: none;
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 10;
+        }
+    }
+}
+
+.sonar-catagories-widget-area {
+    h6 {
+        margin-bottom: 15px;
+    }
+    .catagories-menu {
+        li {
+            a {
+                padding: 10px 0 10px 40px;
+                font-size: 12px;
+                font-weight: 300;
+                color: $text-color;
+                display: block;
+            }
+        }
+    }
+}
+
+.latest-news-widget-area {
+    h6 {
+        margin-bottom: 25px;
+    }
+    .widget-single-blog-post {
+        margin-bottom: 30px;
+        .widget-post-content {
+            a {
+                font-size: 15px;
+                color: $heading-color;
+                margin-bottom: 5px;
+                font-weight: 300;
+                &:hover,
+                &:focus {
+                    font-size: 15px;
+                    font-weight: 300;
+                }
+            }
+            p {
+                font-size: 12px;
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+/* :: Contact Area CSS */
+
+.contact-form {
+    h2 {
+        font-size: 72px;
+        margin-bottom: 15px;
+        font-weight: 100;
+        @media #{$breakpoint-lg} {
+            font-size: 55px;
+        }
+        @media #{$breakpoint-md} {
+            font-size: 36px;
+        }
+        @media #{$breakpoint-xs} {
+            font-size: 30px;
+        }
+    }
+    h4 {
+        font-size: 48px;
+        margin-bottom: 80px;
+        @media #{$breakpoint-md} {
+            font-size: 30px;
+        }
+        @media #{$breakpoint-xs} {
+            font-size: 24px;
+        }
+    }
+    .form-group {
+        margin-bottom: 30px;
+    }
+    .form-control {
+        width: 100%;
+        height: 60px;
+        padding: 0 15px;
+        border: none;
+        border-bottom: 1px solid;
+        border-color: #c0c0c0;
+        border-radius: 0;
+        font-size: 12px;
+        font-style: italic;
+        color: $heading-color;
+        background-color: transparent;
+        &:focus,
+        &:hover {
+            box-shadow: none;
+        }
+    }
+    textarea {
+        margin-bottom: 50px;
+        &.form-control {
+            height: 220px;
+            padding: 15px;
+        }
+    }
+}
+
+.map-area {
+    position: relative;
+    z-index: 1;
+    margin: 0 50px;
+    #googleMap {
+        width: 100%;
+        height: 540px;
+        @media #{$breakpoint-xs} {
+            height: 400px;
+        }
+    }
+    @media #{$breakpoint-xs} {
+        margin: 0 20px;
+    }
+}

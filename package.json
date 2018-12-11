@@ -26,6 +26,7 @@
     "vue-match-heights": "^0.1.1",
     "vue-owl-carousel": "^2.0.3",
     "vue-router": "^3.0.1",
+    "vue-scrollto": "^2.13.0",
     "vue2-animate": "^2.1.0"
   },
   "devDependencies": {
