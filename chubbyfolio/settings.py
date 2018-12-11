@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'photosets',
     'dynamic_settings',
+    'feedback',
 ]
 
 MIDDLEWARE = [
