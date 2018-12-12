@@ -63,7 +63,7 @@
                              :class="{'is-invalid': errors.has('phone')}"
                              v-model="message.phone"
                              placeholder="Your Phone"
-                              v-mask="'+38(###) ###-##-##'">
+                             v-mask="'+38(###) ###-##-##'">
                       <small class="text-danger" v-if="errors.has('phone')">
                         {{ errors.get('phone') }}
                       </small>
@@ -94,7 +94,8 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button type="submit" :disabled="errors.any()" class="btn sonar-btn" @click.prevent="sendMessage()">
+                    <button type="submit" :disabled="errors.any()" class="btn sonar-btn"
+                            @click.prevent="sendMessage()">
                       Contact Me
                     </button>
                   </div>
@@ -129,7 +130,17 @@ export default {
       Api.createMessage(this.message)
         .then(() => {
           this.clearForm();
-          this.$swal('', 'Сообщение отправлено', 'success');
+          this.$swal({
+            title: 'Сообщение отправлено',
+            text: 'Мы свяжемся с вами в ближайшее время',
+            type: 'success',
+            confirmButtonText: 'На главную'
+          })
+            .then((result) => {
+              if (result.value) {
+                this.$router.push({name: 'home'});
+              }
+            });
         })
         .catch(error => {
           this.errors.record(error.response.data);
