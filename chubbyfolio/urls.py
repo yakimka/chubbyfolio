@@ -8,6 +8,7 @@ urlpatterns = [
     path('api/', include([
         path('photosets/', include('photosets.urls'), name='photosets'),
         path('dynamic-settings/', include('dynamic_settings.urls'), name='dynamic_settings'),
+        path('feedback/', include('feedback.urls'), name='feedback'),
     ]), name='api')
 ]
 
