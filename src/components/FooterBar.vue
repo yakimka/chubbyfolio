@@ -9,9 +9,10 @@
           <div class="copywrite-text">
             <p>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;{{ new Date().getFullYear() }}
-              All rights reserved | This template is made with <font-awesome-icon :icon="['fas', 'heart']"/> by
-              <a href="https://colorlib.com" target="_blank">Colorlib</a> | Adapted by <a href="https://t.me/yakimka" target="_blank">yakimka</a>
+              Site created by <a
+              href="https://t.me/yakimka" target="_blank">yakimka</a> | Based on template made by
+              <a href="https://colorlib.com" target="_blank">Colorlib</a> | Copyright &copy;{{ new
+              Date().getFullYear() }} | All rights reserved
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>
           </div>

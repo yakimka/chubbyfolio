@@ -1,7 +1,7 @@
 <script>
 import NavBar from '@/components/NavBar';
 import FooterBar from '@/components/FooterBar';
-import {setLoadingState} from '@/helpers';
+import {onLayoutCreate} from '@/helpers';
 
 export default {
   components: {
@@ -14,9 +14,7 @@ export default {
     };
   },
   created() {
-    this.$on('spinner-state', function (state) {
-      setLoadingState(this, state);
-    });
+    onLayoutCreate(this);
   }
 };
 </script>
