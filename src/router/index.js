@@ -44,7 +44,7 @@ export default new Router({
     {
       path: '/about-me',
       name: 'about',
-      meta: {layout: 'no-sidebar'},
+      meta: {layout: 'landing'},
       component: () => import('@/pages/About.vue')
     },
     {

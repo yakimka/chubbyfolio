@@ -1071,21 +1071,6 @@ img {
         }
     }
     .hero-thumbnail {
-        &.aboutUs {
-            &::before {
-                position: absolute;
-                width: 100%;
-                height: 100px;
-                bottom: 0;
-                left: 0;
-                background-color: $color-white;
-                content: '';
-                z-index: 1;
-                @media #{$breakpoint-xs} {
-                    display: none;
-                }
-            }
-        }
         @media #{$breakpoint-xs} {
             height: 400px;
         }
@@ -1377,5 +1362,108 @@ img {
     }
     @media #{$breakpoint-xs} {
         margin: 0 20px;
+    }
+}
+
+/* :: About Area CSS */
+
+.sonar-about-us-area {
+    position: relative;
+    z-index: 1;
+    padding: 120px 0;
+    overflow: hidden;
+    &::after {
+        content: "";
+        width: 50%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: $color-white;
+        position: absolute;
+        z-index: -5;
+    }
+    &.second-part {
+        position: relative;
+        padding: 120px 0;
+        &::after {
+            content: "";
+            width: 50%;
+            height: 100%;
+            top: 0;
+            left: auto;
+            right: 0;
+            background-color: $color-white;
+            position: absolute;
+            z-index: -5;
+        }
+    }
+    .about-us-content {
+        padding: 15px 100px 100px;
+        margin-left: 100px;
+        @media #{$breakpoint-lg} {
+            padding: 15px 30px 100px;
+            margin-left: 50px;
+        }
+        @media #{$breakpoint-md} {
+            margin-left: 0;
+        }
+        @media #{$breakpoint-xs} {
+            margin-left: 0;
+            padding: 15px 20px 100px;
+        }
+    }
+    .backEnd-content {
+        h2 {
+            position: absolute;
+            font-size: 230px;
+            color: #f0f0f0;
+            z-index: -1;
+            top: -130px;
+            left: -10%;
+            @media #{$breakpoint-lg} {
+                font-size: 170px;
+                top: -90px;
+            }
+            @media #{$breakpoint-md} {
+                font-size: 100px;
+                top: -30px;
+                left: -5%;
+            }
+            @media #{$breakpoint-xs} {
+                font-size: 60px;
+                top: 0;
+            }
+        }
+    }
+    &.second-part {
+        overflow: hidden;
+        .about-us-content {
+            padding: 100px;
+            margin-left: 0;
+            margin-right: 100px;
+            @media #{$breakpoint-lg} {
+                margin-right: 0;
+            }
+            @media #{$breakpoint-md} {
+                margin-right: 0;
+            }
+            @media #{$breakpoint-xs} {
+                margin-right: 0;
+                padding: 100px 20px 70px;
+            }
+        }
+        .backEnd-content {
+            h2 {
+                top: -100px;
+                left: auto;
+                right: -50px;
+                @media #{$breakpoint-md} {
+                    font-size: 100px;
+                    top: 0;
+                    left: auto;
+                    right: 0;
+                }
+            }
+        }
     }
 }
