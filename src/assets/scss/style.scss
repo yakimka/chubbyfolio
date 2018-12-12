@@ -603,7 +603,7 @@ img {
   width: 480px;
   height: 100%;
   top: 0;
-  right: -500px;
+  right: 0px;
   background-color: $bg-default;
   z-index: 99999;
   text-align: center;
@@ -708,12 +708,6 @@ img {
     padding: 15px;
     width: 300px;
   }
-}
-
-/* :: Menu Open CSS */
-
-.menu-open .mainMenu {
-  right: 0;
 }
 
 /* :: Hero Slides Area CSS */

@@ -37,41 +37,46 @@
     <!-- ***** Header Area End ***** -->
 
     <!-- ***** Main Menu Area Start ***** -->
-    <div class="mainMenu d-flex align-items-center justify-content-between">
-      <!-- Close Icon -->
-      <div class="closeIcon" @click="menuOpen = !menuOpen">
-        <font-awesome-icon class="ti-close" :icon="['fas', 'times-circle']"/>
+    <transition
+      name="custom-classes-transition"
+      enter-active-class="animated bounceInRight"
+      leave-active-class="animated bounceOutRight">
+      <div class="mainMenu d-flex align-items-center justify-content-between" v-if="menuOpen">
+        <!-- Close Icon -->
+        <div class="closeIcon" @click="menuOpen = !menuOpen">
+          <font-awesome-icon class="ti-close" :icon="['fas', 'times-circle']"/>
+        </div>
+        <!-- Logo Area -->
+        <div class="logo-area">
+          <!--<a href="index.html">Sonar</a>-->
+        </div>
+        <!-- Nav -->
+        <div class="sonarNav">
+          <nav>
+            <ul>
+              <b-nav-item :to="{name: 'home'}">Главная</b-nav-item>
+              <b-nav-item :to="{name: 'portfolio'}">Портфолио</b-nav-item>
+              <b-nav-item to="#" v-scroll-to="'#contact-me'" v-if="isContactPage">Контакты
+              </b-nav-item>
+              <b-nav-item :to="{name: 'contact', query: { scroll: true }}" v-else>Контакты
+              </b-nav-item>
+              <b-nav-item :to="{name: 'about'}">Обо мне</b-nav-item>
+            </ul>
+          </nav>
+        </div>
+        <!-- Copwrite Text -->
+        <div class="copywrite-text">
+          <p>
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            Site created by <a
+            href="https://t.me/yakimka" target="_blank">yakimka</a> | Based on template made by
+            <a href="https://colorlib.com" target="_blank">Colorlib</a> | Copyright &copy;{{ new
+            Date().getFullYear() }} | All rights reserved
+            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          </p>
+        </div>
       </div>
-      <!-- Logo Area -->
-      <div class="logo-area">
-        <!--<a href="index.html">Sonar</a>-->
-      </div>
-      <!-- Nav -->
-      <div class="sonarNav">
-        <nav>
-          <ul>
-            <b-nav-item :to="{name: 'home'}">Главная</b-nav-item>
-            <b-nav-item :to="{name: 'portfolio'}">Портфолио</b-nav-item>
-            <b-nav-item to="#" v-scroll-to="'#contact-me'" v-if="isContactPage">Контакты
-            </b-nav-item>
-            <b-nav-item :to="{name: 'contact', query: { scroll: true }}" v-else>Контакты
-            </b-nav-item>
-            <b-nav-item :to="{name: 'about'}">Обо мне</b-nav-item>
-          </ul>
-        </nav>
-      </div>
-      <!-- Copwrite Text -->
-      <div class="copywrite-text">
-        <p>
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-          Site created by <a
-          href="https://t.me/yakimka" target="_blank">yakimka</a> | Based on template made by
-          <a href="https://colorlib.com" target="_blank">Colorlib</a> | Copyright &copy;{{ new
-          Date().getFullYear() }} | All rights reserved
-          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        </p>
-      </div>
-    </div>
+    </transition>
     <!-- ***** Main Menu Area End ***** -->
   </div>
 </template>
