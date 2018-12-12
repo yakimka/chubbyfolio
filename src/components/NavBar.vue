@@ -26,7 +26,7 @@
                   </a>
                 </div>
                 <!-- Menu Icon -->
-                <span class="navbar-toggler-icon" id="menuIcon"
+                <span class="navbar-toggler-icon" id="menuIcon" title="Открыть главное меню"
                       @click="menuOpen = !menuOpen"></span>
               </div>
             </div>
