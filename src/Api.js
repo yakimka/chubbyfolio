@@ -20,5 +20,8 @@ export default {
     return axios.get('/dynamic-settings/', {
       params: params
     });
+  },
+  createMessage(params = {}) {
+    return axios.post('/feedback/message/', params);
   }
 };

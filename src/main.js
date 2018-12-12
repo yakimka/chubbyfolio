@@ -3,6 +3,8 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+import VueSweetalert2 from 'vue-sweetalert2';
+import VueTheMask from 'vue-the-mask';
 
 import BootstrapVue from 'bootstrap-vue';
 import VueMatchHeights from 'vue-match-heights';
@@ -31,6 +33,8 @@ Vue.use(BootstrapVue);
 Vue.use(VueMatchHeights);
 Vue.use(VueViewer);
 Vue.use(VueScrollTo);
+Vue.use(VueSweetalert2);
+Vue.use(VueTheMask);
 Vue.component('default-layout', Default);
 Vue.component('no-sidebar-layout', NoSidebar);
 Vue.component('landing-layout', Landing);

@@ -27,6 +27,8 @@
     "vue-owl-carousel": "^2.0.3",
     "vue-router": "^3.0.1",
     "vue-scrollto": "^2.13.0",
+    "vue-sweetalert2": "^1.5.11",
+    "vue-the-mask": "^0.11.1",
     "vue2-animate": "^2.1.0"
   },
   "devDependencies": {

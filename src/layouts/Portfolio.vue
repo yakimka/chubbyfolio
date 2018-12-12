@@ -41,7 +41,10 @@ export default {
               <h2>Take a look at my Portfolio</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor
                 facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui.</p>
-              <a href="#" class="btn sonar-btn white-btn">contact me</a>
+              <router-link class="btn sonar-btn white-btn"
+                           :to="{name: 'contact', query: { scroll: true }}">
+                contact me
+              </router-link>
             </div>
           </div>
         </div>

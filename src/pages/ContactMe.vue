@@ -16,7 +16,8 @@
               <h2>Contact me</h2>
               <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor
                 facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui.</p>
-              <a href="#" v-scroll-to="'#contact-me'" class="btn sonar-btn white-btn">contact me</a>
+              <a href="#" v-scroll-to="'#contact-me'" class="btn sonar-btn white-btn">contact
+                me</a>
             </div>
           </div>
         </div>
@@ -39,34 +40,63 @@
               <h2>I am an experienced photographer</h2>
               <h4>Let’s talk</h4>
 
-              <form action="#" method="post">
+              <form action="#"
+                    method="post"
+                    @keydown="errors.clear($event.target.name)">
                 <div class="row">
                   <div class="col-12 col-md-4">
                     <div class="form-group">
-                      <input type="text" class="form-control" id="contact-name"
+                      <input type="text" class="form-control"
+                             name="name"
+                             :class="{'is-invalid': errors.has('name')}"
+                             v-model="message.name"
                              placeholder="Your Name">
+                      <small class="text-danger" v-if="errors.has('name')">
+                        {{ errors.get('name') }}
+                      </small>
                     </div>
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="form-group">
-                      <input type="text" class="form-control" id="contact-phone"
-                             placeholder="Your Phone">
+                      <input type="tel" class="form-control"
+                             name="phone"
+                             :class="{'is-invalid': errors.has('phone')}"
+                             v-model="message.phone"
+                             placeholder="Your Phone"
+                              v-mask="'+38(###) ###-##-##'">
+                      <small class="text-danger" v-if="errors.has('phone')">
+                        {{ errors.get('phone') }}
+                      </small>
                     </div>
                   </div>
                   <div class="col-12 col-md-4">
                     <div class="form-group">
-                      <input type="email" class="form-control" id="contact-email"
+                      <input type="email" class="form-control"
+                             name="email"
+                             :class="{'is-invalid': errors.has('email')}"
+                             v-model="message.email"
                              placeholder="Your Email">
+                      <small class="text-danger" v-if="errors.has('email')">
+                        {{ errors.get('email') }}
+                      </small>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="form-group">
-                      <textarea class="form-control" name="message" id="message" cols="30"
+                      <textarea class="form-control" cols="30"
+                                name="text"
+                                :class="{'is-invalid': errors.has('text')}"
+                                v-model="message.text"
                                 rows="10" placeholder="Message"></textarea>
+                      <small class="text-danger" v-if="errors.has('text')">
+                        {{ errors.get('text') }}
+                      </small>
                     </div>
                   </div>
                   <div class="col-12">
-                    <button type="submit" class="btn sonar-btn">Contact Me</button>
+                    <button type="submit" :disabled="errors.any()" class="btn sonar-btn" @click.prevent="sendMessage()">
+                      Contact Me
+                    </button>
                   </div>
                 </div>
               </form>
@@ -79,12 +109,46 @@
 </template>
 
 <script>
+import Api from '@/Api';
+import Errors from '@/Errors';
+
 export default {
   data() {
-    return {};
+    return {
+      message: {
+        name: '',
+        phone: '',
+        email: '',
+        text: ''
+      },
+      errors: new Errors()
+    };
+  },
+  methods: {
+    sendMessage() {
+      Api.createMessage(this.message)
+        .then(() => {
+          this.clearForm();
+          this.$swal('', 'Сообщение отправлено', 'success');
+        })
+        .catch(error => {
+          this.errors.record(error.response.data);
+        });
+    },
+    clearForm() {
+      for (let field in this.message) {
+        this.message[field] = '';
+      }
+      this.errors.clear();
+    }
   },
   created() {
     this.$parent.$emit('spinner-state', false);
+  },
+  mounted() {
+    if (this.$route.query.hasOwnProperty('scroll')) {
+      this.$scrollTo('#contact-me');
+    }
   }
 };
 </script>
