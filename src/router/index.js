@@ -3,16 +3,6 @@ import Router from 'vue-router';
 
 Vue.use(Router);
 
-// export default new Router({
-//   routes: [
-//     {
-//       path: '/',
-//       name: 'HelloWorld',
-//       component: HelloWorld
-//     }
-//   ]
-// });
-
 export default new Router({
   mode: 'history',
 
@@ -20,7 +10,6 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      meta: {layout: 'landing'},
       component: require('@/pages/Home.vue').default // load sync home
     },
     {
@@ -38,19 +27,22 @@ export default new Router({
     {
       path: '/contact-me',
       name: 'contact',
-      meta: {layout: 'landing'},
       component: () => import('@/pages/ContactMe.vue')
     },
     {
       path: '/about-me',
       name: 'about',
-      meta: {layout: 'landing'},
       component: () => import('@/pages/About.vue')
     },
     {
-      path: '*',
-      name: '404*',
+      path: '/404',
+      name: '404',
+      meta: {layout: 'blank'},
       component: require('@/pages/404.vue').default // load sync home
+    },
+    {
+      path: '*',
+      redirect: '/404'
     }
   ]
 });

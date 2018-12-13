@@ -7,7 +7,7 @@
 </template>
 
 <script>
-const DEFAULT_LAYOUT = 'default';
+const DEFAULT_LAYOUT = 'landing';
 
 export default {
   computed: {
