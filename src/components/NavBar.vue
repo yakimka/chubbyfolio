@@ -53,7 +53,7 @@
         <!-- Nav -->
         <div class="sonarNav">
           <nav>
-            <ul>
+            <ul @click="menuOpen = false">
               <b-nav-item :to="{name: 'home'}">Главная</b-nav-item>
               <b-nav-item :to="{name: 'portfolio'}">Портфолио</b-nav-item>
               <b-nav-item to="#" v-scroll-to="'#contact-me'" v-if="isContactPage">Контакты
