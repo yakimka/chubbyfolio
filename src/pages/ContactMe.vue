@@ -94,7 +94,7 @@
                     </div>
                   </div>
                   <div class="col-12">
-                    <button type="submit" :disabled="errors.any()" class="btn sonar-btn"
+                    <button type="submit" :disabled="isErrorsInFields" class="btn sonar-btn"
                             @click.prevent="sendMessage()">
                       Contact Me
                     </button>
@@ -125,8 +125,11 @@ export default {
       errors: new Errors()
     };
   },
+  // TODO вынести функционал формы, всплывающих сообщений,
+  // обработки ошибок в отдельные функции\классы
   methods: {
     sendMessage() {
+      this.errors.clear();
       Api.createMessage(this.message)
         .then(() => {
           this.clearForm();
@@ -144,6 +147,18 @@ export default {
         })
         .catch(error => {
           this.errors.record(error.response.data);
+          console.log(error.response);
+          if (!this.isErrorsInFields) {
+            let errorText = 'Произошла ошибка. Попробуйте позже.';
+            if (error.response.status === 429) {
+              errorText = 'Вы превысили максимальное количество запросов. Повторите позже.';
+            }
+            this.$swal({
+              title: 'Ой',
+              text: errorText,
+              type: 'error'
+            });
+          }
         });
     },
     clearForm() {
@@ -151,6 +166,11 @@ export default {
         this.message[field] = '';
       }
       this.errors.clear();
+    }
+  },
+  computed: {
+    isErrorsInFields() {
+      return this.errors.any(Object.keys(this.message));
     }
   },
   created() {

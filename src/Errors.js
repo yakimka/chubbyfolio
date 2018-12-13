@@ -9,11 +9,16 @@ class Errors {
     return this.errors.hasOwnProperty(field);
   }
 
-  any() {
-    if (this.errors['error']) {
-      return Object.keys(this.errors).length > 1;
+  any(fields = null) {
+    if (fields) {
+      for (let i in fields) {
+        if (this.errors.hasOwnProperty(fields[i])) {
+          return true;
+        }
+      }
+    } else {
+      return Object.keys(this.errors).length > 0;
     }
-    return Object.keys(this.errors).length > 0;
   }
 
   get(field) {
