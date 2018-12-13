@@ -23,7 +23,10 @@
                 consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla
                 placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.
                 Fusce sagittis suscipit sem.</p>
-              <a href="#" class="btn sonar-btn white-btn">contact me</a>
+              <router-link class="btn sonar-btn white-btn"
+                           :to="{name: 'contact', query: { scroll: true }}">
+                contact me
+              </router-link>
             </div>
           </div>
         </div>
@@ -31,7 +34,8 @@
     </div>
     <!-- ***** Hero Area End ***** -->
 
-    <div class="sonar-about-us-area bg-img" style="background-image: url(/static/img/bg-img/about2.jpg);">
+    <div class="sonar-about-us-area bg-img"
+         style="background-image: url(/static/img/bg-img/about2.jpg);">
       <!-- Back End Content -->
       <div class="backEnd-content">
         <h2>Dream</h2>
