@@ -1,5 +1,9 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+import 'viewerjs/dist/viewer.css';
+import './assets/scss/style.scss';
 import Vue from 'vue';
 import App from './App';
 import router from './router';
@@ -15,10 +19,6 @@ import Portfolio from './layouts/Portfolio.vue';
 import Blank from './layouts/Blank.vue';
 import TopPage from './components/TopPage';
 import MainScreenPhoto from './components/MainScreenPhoto';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
-import 'viewerjs/dist/viewer.css';
-import './assets/scss/style.scss';
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {fas} from '@fortawesome/free-solid-svg-icons';
 import {fab} from '@fortawesome/free-brands-svg-icons';
