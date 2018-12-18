@@ -25,7 +25,7 @@ SECRET_KEY = '96p6jr_)8^ofhfep)$@hi^uvqn3d6rhmqax%$$3+&f)31gk9=z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'photosets',
     'dynamic_settings',
     'feedback',
+    'gunicorn',
 ]
 
 MIDDLEWARE = [
@@ -89,7 +90,7 @@ DATABASES = {
         'NAME': 'chubbyfolio',
         'USER': 'chubbyfolio',
         'PASSWORD': '',
-        'HOST': '127.0.0.1',
+        'HOST': 'postgres',
         'PORT': '5432',
     }
 }
@@ -135,6 +136,8 @@ STATIC_URL = '/static/'
 
 ##############################################################################
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
@@ -164,6 +167,10 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = (
     'localhost:8080',
+    'localhost',
+    '127.0.0.1:8080',
+    '127.0.0.1',
+    '127.0.0.1',
 )
 
 THUMBNAIL_ALIASES = {
