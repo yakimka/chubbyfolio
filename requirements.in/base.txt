@@ -1,0 +1,8 @@
+Django
+django-cors-headers
+django-dynamic-preferences
+djangorestframework
+easy-thumbnails
+Pillow
+psycopg2-binary
+python-decouple
