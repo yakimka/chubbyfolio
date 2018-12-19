@@ -12,42 +12,53 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
+from decouple import config
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# APPS_DIR = os.path.join(BASE_DIR, 'django_apps')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '96p6jr_)8^ofhfep)$@hi^uvqn3d6rhmqax%$$3+&f)31gk9=z'
+SECRET_KEY = 'zb(z=^pfsy!@4_h+$lxo@%beqo^@rf5%z8jgxoj-0l!ew*+cln'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = config(
+    'ALLOWED_HOSTS',
+    cast=lambda v: [d for d in [s.strip() for s in v.split(' ')] if d],
+    default='',
+)
 
 
 # Application definition
-
-INSTALLED_APPS = [
+DJANGO_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+]
+
+THIRD_PARTY_APPS = [
     'dynamic_preferences',
     'rest_framework',
     'corsheaders',
     'easy_thumbnails',
-    'django_extensions',
+]
 
+LOCAL_APPS = [
     'photosets',
     'dynamic_settings',
     'feedback',
-    'gunicorn',
 ]
+
+INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -87,11 +98,11 @@ WSGI_APPLICATION = 'chubbyfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'chubbyfolio',
-        'USER': 'chubbyfolio',
-        'PASSWORD': '',
-        'HOST': 'postgres',
-        'PORT': '5432',
+        'NAME': config('POSTGRES_DB'),
+        'USER': config('POSTGRES_USER'),
+        'PASSWORD': config('POSTGRES_PASSWORD'),
+        'HOST': config('DATABASE_HOST'),
+        'PORT': config('DATABASE_PORT'),
     }
 }
 
