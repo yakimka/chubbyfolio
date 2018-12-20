@@ -176,12 +176,10 @@ REST_FRAMEWORK = {
     }
 }
 
-CORS_ORIGIN_WHITELIST = (
-    'localhost:8080',
-    'localhost',
-    '127.0.0.1:8080',
-    '127.0.0.1',
-    '127.0.0.1',
+CORS_ORIGIN_WHITELIST = config(
+    'CORS_ORIGIN_WHITELIST',
+    cast=lambda v: [d for d in [s.strip() for s in v.split(' ')] if d],
+    default='',
 )
 
 THUMBNAIL_ALIASES = {
