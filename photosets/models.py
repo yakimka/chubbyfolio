@@ -9,7 +9,7 @@ def upload_photosets_to(instance, filename):
 
 
 def upload_previews_to(instance, filename):
-    return 'uploads/photosets/previews/{0}/{1}'.format(instance.id, filename)
+    return 'uploads/main_screen/slider/{1}'.format(instance.id, filename)
 
 
 class Photoset(models.Model):

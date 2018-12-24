@@ -1,4 +1,6 @@
+from contextlib import suppress
 from django.utils import dateformat
+from easy_thumbnails.exceptions import InvalidImageFormatError
 from rest_framework import serializers
 
 from dynamic_settings.models import MainScreenPhoto
@@ -26,4 +28,6 @@ class MainScreenPhotoSerializer(serializers.ModelSerializer):
     def get_image(self, photo):
         photos = self.context.get('photos')
         order_number = next(i for i, j in enumerate(photos) if j.pk == photo.pk)
-        return self._get_absolute_url(photo.image['p{0}'.format(order_number + 1)])
+        with suppress(InvalidImageFormatError):
+            return self._get_absolute_url(photo.image['p{0}'.format(order_number + 1)])
+        return ''
