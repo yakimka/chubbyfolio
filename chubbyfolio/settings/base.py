@@ -184,16 +184,16 @@ CORS_ORIGIN_WHITELIST = config(
 
 THUMBNAIL_ALIASES = {
     '': {
-        'home_slider': {'size': (480, 950), 'crop': 'smart', 'quality': 95},
-        '500x500': {'size': (500, 500), 'crop': False, 'quality': 95},
-        '600x675c': {'size': (600, 675), 'crop': 'smart', 'quality': 95},
-        '1000x1000': {'size': (1000, 1000), 'crop': False, 'quality': 95},
-        'p1': {'size': (460, 657), 'crop': 'smart', 'quality': 95},
-        'p2': {'size': (558, 585), 'crop': 'smart', 'quality': 95},
-        'p3': {'size': (967, 657), 'crop': 'smart', 'quality': 95},
-        'p4': {'size': (560, 557), 'crop': 'smart', 'quality': 95},
-        'p5': {'size': (460, 657), 'crop': 'smart', 'quality': 95},
-        'p6': {'size': (326, 469), 'crop': 'smart', 'quality': 95},
-        'p7': {'size': (360, 531), 'crop': 'smart', 'quality': 95},
+        'home_slider': {'size': (480, 950), 'crop': 'smart', 'quality': 90},
+        '500x500': {'size': (500, 500), 'crop': False, 'quality': 90},
+        '600x675c': {'size': (600, 675), 'crop': 'smart', 'quality': 90},
+        '1000x1000': {'size': (1000, 1000), 'crop': False, 'quality': 90},
+        'p1': {'size': (460, 657), 'crop': 'smart', 'quality': 90},
+        'p2': {'size': (558, 585), 'crop': 'smart', 'quality': 90},
+        'p3': {'size': (967, 657), 'crop': 'smart', 'quality': 90},
+        'p4': {'size': (560, 557), 'crop': 'smart', 'quality': 90},
+        'p5': {'size': (460, 657), 'crop': 'smart', 'quality': 90},
+        'p6': {'size': (326, 469), 'crop': 'smart', 'quality': 90},
+        'p7': {'size': (360, 531), 'crop': 'smart', 'quality': 90},
     },
 }
