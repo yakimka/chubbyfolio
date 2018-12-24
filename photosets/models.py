@@ -1,6 +1,8 @@
+from contextlib import suppress
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.translation import gettext as _
+from easy_thumbnails.exceptions import InvalidImageFormatError
 from easy_thumbnails.fields import ThumbnailerImageField
 
 
@@ -20,7 +22,8 @@ class Photoset(models.Model):
     name = models.CharField(max_length=1024, verbose_name=_('название'))
     description = models.TextField(blank=True, verbose_name=_('описание'))
     published = models.BooleanField(default=True, verbose_name=_('опубликовано'))
-    preview = models.ImageField(upload_to=upload_previews_to, verbose_name=_('превью для главной'), null=True, blank=True)
+    preview = models.ImageField(upload_to=upload_previews_to, verbose_name=_('превью для главной'),
+                                null=True, blank=True)
     show_on_mainpage = models.BooleanField(default=False, verbose_name=_('показывать на главной'))
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
@@ -56,4 +59,6 @@ class Photo(models.Model):
 
     @property
     def thumbnail(self):
-        return self.image['600x675c']
+        with suppress(InvalidImageFormatError):
+            return self.image['600x675c']
+        return self.image
