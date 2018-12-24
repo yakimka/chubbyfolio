@@ -42,6 +42,11 @@ Vue.component('main-screen-photo', MainScreenPhoto);
 
 Vue.config.productionTip = false;
 
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title;
+  next();
+});
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

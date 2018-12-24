@@ -4,5 +4,6 @@ const prodEnv = require('./prod.env');
 
 module.exports = merge(prodEnv, {
   NODE_ENV: '"development"',
-  ROOT_API: '"http://127.0.0.1:8000/api"'
+  VUE_APP_ROOT_API: `"${process.env.VUE_APP_ROOT_API}"`,
+  VUE_APP_SITE_NAME: `"${process.env.VUE_APP_SITE_NAME}"`
 });
