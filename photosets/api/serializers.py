@@ -14,6 +14,7 @@ class PhotoSerializer(serializers.ModelSerializer):
 
 class PhotosetSerializer(serializers.ModelSerializer):
     cover = serializers.ImageField()
+    preview = serializers.ImageField(source='preview_thumbnail')
 
     class Meta:
         model = Photoset

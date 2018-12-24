@@ -22,7 +22,7 @@ class Photoset(models.Model):
     name = models.CharField(max_length=1024, verbose_name=_('название'))
     description = models.TextField(blank=True, verbose_name=_('описание'))
     published = models.BooleanField(default=True, verbose_name=_('опубликовано'))
-    preview = models.ImageField(upload_to=upload_previews_to, verbose_name=_('превью для главной'),
+    preview = ThumbnailerImageField(upload_to=upload_previews_to, verbose_name=_('превью для главной'),
                                 null=True, blank=True)
     show_on_mainpage = models.BooleanField(default=False, verbose_name=_('показывать на главной'))
     date_created = models.DateTimeField(auto_now_add=True)
@@ -42,6 +42,12 @@ class Photoset(models.Model):
     def cover(self):
         first_photo = self.photos.first()
         return first_photo.thumbnail if first_photo else None
+
+    @property
+    def preview_thumbnail(self):
+        with suppress(InvalidImageFormatError):
+            return self.preview['home_slider']
+        return self.preview
 
 
 class Photo(models.Model):
