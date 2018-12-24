@@ -7,7 +7,6 @@ export function setLoadingState(that, state) {
 }
 
 export function onLayoutCreate(that) {
-  console.log(that);
   that.$on('spinner-state', function (state) {
     setLoadingState(that, state);
   });

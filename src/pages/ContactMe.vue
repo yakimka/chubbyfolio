@@ -147,7 +147,6 @@ export default {
         })
         .catch(error => {
           this.errors.record(error.response.data);
-          console.log(error.response);
           if (!this.isErrorsInFields) {
             let errorText = 'Произошла ошибка. Попробуйте позже.';
             if (error.response.status === 429) {
