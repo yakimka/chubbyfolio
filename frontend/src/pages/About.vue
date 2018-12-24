@@ -34,8 +34,7 @@
     </div>
     <!-- ***** Hero Area End ***** -->
 
-    <div class="sonar-about-us-area bg-img"
-         style="background-image: url(/static/img/bg-img/about2.jpg);">
+    <div class="sonar-about-us-area bg-img">
       <!-- Back End Content -->
       <div class="backEnd-content">
         <h2>Dream</h2>
