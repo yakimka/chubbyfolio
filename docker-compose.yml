@@ -46,6 +46,17 @@ services:
       - ./static/:/static:ro
       - ./media/:/media:ro
       - ./frontend/dist/:/usr/share/nginx/html:ro
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
     ports:
       - "0.0.0.0:8000:8000"
       - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
