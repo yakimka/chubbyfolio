@@ -12,6 +12,9 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/static/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+
+    <!-- Additional meta for production such as google analytics, search console, etc. -->
+    <%= process.env.NODE_ENV === 'production' ? `${process.env.ADDITIONAL_HEAD_CONTENT}` : '' %>
   </head>
   <body>
     <div id="app"></div>
