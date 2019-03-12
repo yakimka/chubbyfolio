@@ -549,7 +549,7 @@ img {
   height: auto;
   @include trans-duration(500ms);
   background-color: transparent;
-  padding: 15px 30px;
+  padding: 0 30px;
 
   .logo-area {
     a {
@@ -1116,7 +1116,7 @@ img {
   }
 
   .hero-content {
-    height: 880px;
+    height: 480px;
     padding: 100px 0;
 
     .line {
@@ -1148,7 +1148,7 @@ img {
     }
 
     &.aboutUs {
-      height: 1100px;
+      height: 880px;
       @media #{$breakpoint-xs} {
         height: auto;
       }
