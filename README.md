@@ -14,10 +14,13 @@ Chubbyfolio это сайт-визитка для фотографов.
 
 1. Клонируем репозиторий на сервер
 2. Создаем файлы `.env` и `frontend/.env` (за основу берем файлы env.example)
-3. Запускаем скрипт `./create_dirs_and_fix_perms.sh`
+3. Запускаем скрипт `./create_dirs_and_fix_perms.sh` он создаст директории и выставит нужные права
 4. Запускаем `CHUBBYFOLIO_IS_STAGING=0 CHUBBYFOLIO_DOMAIN=example.com ./init-letsenctypt.sh` чтобы получить сертификат для сайта.
 ```
-CHUBBYFOLIO_IS_STAGING - 1 чтобы протестировать конфигурацию и получить сертификат для проверки, 0 чтобы получить сертификат
+CHUBBYFOLIO_IS_STAGING - 1 или 0
+    1 чтобы протестировать конфигурацию и получить сертификат для проверки
+    0 чтобы получить боевой сертификат
+    
 CHUBBYFOLIO_DOMAIN - домен сайта без www
 ```
 
@@ -27,6 +30,16 @@ CHUBBYFOLIO_DOMAIN - домен сайта без www
 
 1. Стянуть изменения `git pull`
 2. Если нужно пересобрать фронтент - удалите содержимое frontend/dist/ `rm -rf frontend/dist/*`
-3. Собрать образ `docker-compose build`
-4. Перезапустить образ `docker-compose up`
-5. Или одной командой `docker-compose up --build`
+3. Пересобрать образ и запустить:
+    - Собрать образ `docker-compose build`
+    - Перезапустить образ `docker-compose up`
+    
+    или одной командой:
+    
+    - `docker-compose up --build`
+
+## Ссылки
+
+1. [Инструкция по созданию "dockerized" веб приложения с использованием DRF и React](https://gist.github.com/genomics-geek/98929a9e7ba9602fed7bfa4a5a1c5c4e)
+2. [Настройка Lets Encrypt + Nginx для Docker](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
+
