@@ -783,9 +783,9 @@ img {
 
   .portfolio-title {
     h2 {
-      font-size: 56px;
+      font-size: 30px;
       text-align: center;
-      font-weight: 100;
+      font-weight: 300;
 
       span {
         font-weight: 400;
@@ -1145,10 +1145,11 @@ img {
     p {
       color: $color-white;
       margin-bottom: 30px;
+      font-weight: 300;
     }
 
     &.aboutUs {
-      height: 880px;
+      height: 640px;
       @media #{$breakpoint-xs} {
         height: auto;
       }
@@ -1539,6 +1540,12 @@ img {
     @media #{$breakpoint-xs} {
       margin-left: 0;
       padding: 15px 20px 100px;
+    }
+
+    p {
+      font-size: 22px;
+      line-height: 1.8;
+      font-weight: 300;
     }
   }
 

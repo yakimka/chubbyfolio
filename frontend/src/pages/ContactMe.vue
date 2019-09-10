@@ -13,11 +13,11 @@
           <div class="row h-100 align-items-center justify-content-center">
             <div class="col-12 col-md-8">
               <div class="line"></div>
-              <h2>Contact me</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor
-                facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui.</p>
-              <a href="#" v-scroll-to="'#contact-me'" class="btn sonar-btn white-btn">contact
-                me</a>
+              <h2>Контакты</h2>
+              <p>+3123123123</p>
+              <a href="#" v-scroll-to="'#contact-me'" class="btn sonar-btn white-btn">
+                написать мне
+              </a>
             </div>
           </div>
         </div>
@@ -37,8 +37,7 @@
           <div class="col-12">
             <div class="contact-form text-center">
 
-              <h2>I am an experienced photographer</h2>
-              <h4>Let’s talk</h4>
+              <h2>Напишите мне и я Вам перезвоню</h2>
 
               <form action="#"
                     method="post"
@@ -50,7 +49,7 @@
                              name="name"
                              :class="{'is-invalid': errors.has('name')}"
                              v-model="message.name"
-                             placeholder="Your Name">
+                             placeholder="Ваше имя">
                       <small class="text-danger" v-if="errors.has('name')">
                         {{ errors.get('name') }}
                       </small>
@@ -62,7 +61,7 @@
                              name="phone"
                              :class="{'is-invalid': errors.has('phone')}"
                              v-model="message.phone"
-                             placeholder="Your Phone"
+                             placeholder="Номер телефона"
                              v-mask="'+38(###) ###-##-##'">
                       <small class="text-danger" v-if="errors.has('phone')">
                         {{ errors.get('phone') }}
@@ -75,7 +74,7 @@
                              name="email"
                              :class="{'is-invalid': errors.has('email')}"
                              v-model="message.email"
-                             placeholder="Your Email">
+                             placeholder="Ваш Email (необязательно)">
                       <small class="text-danger" v-if="errors.has('email')">
                         {{ errors.get('email') }}
                       </small>
@@ -87,7 +86,7 @@
                                 name="text"
                                 :class="{'is-invalid': errors.has('text')}"
                                 v-model="message.text"
-                                rows="10" placeholder="Message"></textarea>
+                                rows="10" placeholder="Текст сообщения (необязательно)"></textarea>
                       <small class="text-danger" v-if="errors.has('text')">
                         {{ errors.get('text') }}
                       </small>
@@ -96,7 +95,7 @@
                   <div class="col-12">
                     <button type="submit" :disabled="isErrorsInFields" class="btn sonar-btn"
                             @click.prevent="sendMessage()">
-                      Contact Me
+                      отправить
                     </button>
                   </div>
                 </div>

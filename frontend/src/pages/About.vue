@@ -8,7 +8,8 @@
       </div>
 
       <!-- Hero Thumbnail -->
-      <div class="hero-thumbnail aboutUs equalize bg-img"></div>
+      <div class="hero-thumbnail aboutUs equalize bg-img"
+           style="background-image: url(/static/img/bg-img/about.jpg);"></div>
 
       <!-- Hero Content -->
       <div class="hero-content aboutUs equalize">
@@ -16,16 +17,13 @@
           <div class="row h-100 align-items-center justify-content-center">
             <div class="col-12 col-md-10">
               <div class="line"></div>
-              <h2>Hello, My name is Sam Smith and I am an experienced photographer</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor
-                facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui. Suspendisse
-                sit amet laoreet neque. Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla
-                placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.
-                Fusce sagittis suscipit sem.</p>
+              <h2>Приветствую Вас! Меня зовут Ира и я фотограф:)</h2>
+              <p>Каждый человек уникален! Через объектив моего фотоаппарата я покажу Вас настоящих.
+                Такие снимки – драгоценные мгновения жизни, которыми Вы сможете поделиться со всем
+                миром! До встречи на фотосессии!</p>
               <router-link class="btn sonar-btn white-btn"
                            :to="{name: 'contact', query: { scroll: true }}">
-                contact me
+                связаться со мной
               </router-link>
             </div>
           </div>
@@ -46,14 +44,15 @@
             <div class="about-us-content bg-white">
               <div class="section-heading text-left wow fadeInUp" data-wow-delay="300ms">
                 <div class="line"></div>
-                <h2>Look at my qualities</h2>
+                <h2>Обо мне</h2>
               </div>
-              <p class="wow fadeInUp" data-wow-delay="600ms">Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Praesent vel tortor facilisis, volutpat nulla
-                placerat, tincidunt mi. Nullam vel orci dui. Suspendisse sit amet laoreet neque.
-                Fusce sagittis suscipit sem. Lorem ipsum dolor sit amet, consectetur adipiscing
-                elit. Praesent vel tortor facilisis, volutpat nulla placerat, tincidunt mi. Nullam
-                vel orci dui. Suspendisse sit amet laoreet neque.</p>
+              <p class="wow fadeInUp" data-wow-delay="600ms">Смею предположить, что Вы посетили мой
+                сайт с целью найти “своего фотографа”, а
+                значит Вы верите (как и я), что фотография ценна. Она может придать глубину и
+                значимость жизни. Не только сегодня, но и годы спустя.
+                Фотография всегда была моим хобби, но благодаря Киевской школе фотографии мое
+                увлечение превратилось в профессию. Основными жанрами, в которых я работаю являются
+                портретная фотография, репортажная съемка, а также food photo.</p>
             </div>
           </div>
         </div>
