@@ -9,7 +9,7 @@
 
       <!-- Hero Thumbnail -->
       <div class="hero-thumbnail aboutUs equalize bg-img"
-           style="background-image: url(/static/img/bg-img/about.jpg);"></div>
+           style="background-image: url(/img/bg-img/about.jpg);"></div>
 
       <!-- Hero Content -->
       <div class="hero-content aboutUs equalize">
