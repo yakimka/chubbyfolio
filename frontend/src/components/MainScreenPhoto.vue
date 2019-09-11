@@ -1,7 +1,7 @@
 <template>
   <div :class="className">
     <div class="backend-content" v-if="backendContent">
-      <img class="dots" src="/static/img/core-img/dots.png" alt="">
+      <img class="dots" src="/img/core-img/dots.png" alt="">
       <h2 v-if="word">{{word}}</h2>
     </div>
     <div class="portfolio-thumb">

@@ -5,7 +5,7 @@
 
       <!-- Hero Thumbnail -->
       <div class="hero-thumbnail equalize bg-img"
-           style="background-image: url(/static/img/bg-img/contact.jpg);"></div>
+           style="background-image: url(/img/bg-img/contact.jpg);"></div>
 
       <!-- Hero Content -->
       <div class="hero-content equalize">
@@ -28,7 +28,7 @@
     <section class="sonar-contact-area section-padding-100" id="contact-me">
       <!-- back end content -->
       <div class="backEnd-content">
-        <img class="dots" src="/static/img/core-img/dots.png" alt="">
+        <img class="dots" src="/img/core-img/dots.png" alt="">
       </div>
 
       <div class="container">

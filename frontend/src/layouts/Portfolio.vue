@@ -28,7 +28,7 @@ export default {
     <div class="hero-area d-flex align-items-center" v-match-heights="{el: ['.equalize']}">
       <!-- Hero Thumbnail -->
       <div class="hero-thumbnail equalize bg-img"
-           style="background-image: url(/static/img/bg-img/portfolio.jpg);"></div>
+           style="background-image: url(/img/bg-img/portfolio.jpg);"></div>
 
       <!-- Hero Content -->
       <div class="hero-content equalize">

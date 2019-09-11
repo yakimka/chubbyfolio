@@ -68,12 +68,6 @@ target/
 # celery beat schedule file
 celerybeat-schedule
 
-# Environments
-.*env
-env/
-venv/
-ENV/
-
 # mkdocs documentation
 /site
 
@@ -88,3 +82,5 @@ dmypy.json
 media
 static
 data
+
+/.*env

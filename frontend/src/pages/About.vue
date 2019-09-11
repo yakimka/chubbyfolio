@@ -4,7 +4,7 @@
     <div class="hero-area d-flex align-items-center" v-match-heights="{el: ['.equalize']}">
       <!-- Back End Content -->
       <div class="backEnd-content">
-        <img class="dots" src="/static/img/core-img/dots.png" alt="">
+        <img class="dots" src="/img/core-img/dots.png" alt="">
       </div>
 
       <!-- Hero Thumbnail -->
