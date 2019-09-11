@@ -33,7 +33,7 @@ class Errors {
 
   recordByName(fieldName, message) {
     let error = {
-      [fieldName]: {'0': message}
+      [fieldName]: { '0': message }
     };
     this.record(error);
   }

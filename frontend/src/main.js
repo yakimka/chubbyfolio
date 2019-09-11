@@ -19,10 +19,10 @@ import Portfolio from './layouts/Portfolio.vue';
 import Blank from './layouts/Blank.vue';
 import TopPage from './components/TopPage';
 import MainScreenPhoto from './components/MainScreenPhoto';
-import {library} from '@fortawesome/fontawesome-svg-core';
-import {fas} from '@fortawesome/free-solid-svg-icons';
-import {fab} from '@fortawesome/free-brands-svg-icons';
-import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 library.add(fas, fab);
 

@@ -1,7 +1,7 @@
 <script>
 import NavBar from '@/components/NavBar';
 import FooterBar from '@/components/FooterBar';
-import {onLayoutCreate} from '@/helpers';
+import { onLayoutCreate } from '@/helpers';
 
 export default {
   components: {

@@ -141,7 +141,7 @@ export default {
           })
             .then((result) => {
               if (result.value) {
-                this.$router.push({name: 'home'});
+                this.$router.push({ name: 'home' });
               }
             });
         })

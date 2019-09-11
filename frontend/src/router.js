@@ -32,7 +32,8 @@ export default new Router({
       name: 'photoset',
       meta: {
         title: 'Портфолио' + DefaultNameForTitle,
-        layout: 'portfolio'},
+        layout: 'portfolio'
+      },
       component: () => import('@/pages/Photoset.vue')
     },
     {
@@ -56,7 +57,8 @@ export default new Router({
       name: '404',
       meta: {
         title: '404',
-        layout: 'blank'},
+        layout: 'blank'
+      },
       component: require('@/pages/404.vue').default // load sync home
     },
     {

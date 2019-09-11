@@ -17,9 +17,9 @@
 <script>
 export default {
   props: {
-    className: {required: true},
-    photo: {required: true},
-    word: {required: false},
+    className: { required: true },
+    photo: { required: true },
+    word: { required: false },
     backendContent: {
       required: false,
       default: true

@@ -158,10 +158,10 @@ export default {
       mainScreenPhotos: null
     };
   },
-  components: {carousel},
+  components: { carousel },
   methods: {
     redirectToPhotoset(id) {
-      this.$router.push({name: 'photoset', params: {id: id}});
+      this.$router.push({ name: 'photoset', params: { id: id } });
     }
   },
   computed: {
@@ -184,7 +184,7 @@ export default {
       .then(() => {
         this.$parent.$emit('spinner-state', -1);
       });
-    Api.getPreferences({section: 'main_screen_photos'})
+    Api.getPreferences({ section: 'main_screen_photos' })
       .then(response => {
         this.mainScreenPhotos = response.data;
       })
