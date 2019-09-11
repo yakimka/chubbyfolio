@@ -16,7 +16,7 @@ export default new Router({
       meta: {
         title: 'Главная страница' + DefaultNameForTitle
       },
-      component: require('@/pages/Home.vue').default // load sync home
+      component: require('@/views/Home.vue').default // load sync home
     },
     {
       path: '/portfolio',
@@ -25,7 +25,7 @@ export default new Router({
         title: 'Портфолио' + DefaultNameForTitle,
         layout: 'portfolio'
       },
-      component: () => import('@/pages/Portfolio.vue')
+      component: () => import('@/views/Portfolio.vue')
     },
     {
       path: '/photoset/:id',
@@ -34,7 +34,7 @@ export default new Router({
         title: 'Портфолио' + DefaultNameForTitle,
         layout: 'portfolio'
       },
-      component: () => import('@/pages/Photoset.vue')
+      component: () => import('@/views/Photoset.vue')
     },
     {
       path: '/contact-me',
@@ -42,7 +42,7 @@ export default new Router({
       meta: {
         title: 'Контакты' + DefaultNameForTitle
       },
-      component: () => import('@/pages/ContactMe.vue')
+      component: () => import('@/views/ContactMe.vue')
     },
     {
       path: '/about-me',
@@ -50,7 +50,7 @@ export default new Router({
       meta: {
         title: 'Обо мне' + DefaultNameForTitle
       },
-      component: () => import('@/pages/About.vue')
+      component: () => import('@/views/About.vue')
     },
     {
       path: '/404',
@@ -59,7 +59,7 @@ export default new Router({
         title: '404',
         layout: 'blank'
       },
-      component: require('@/pages/404.vue').default // load sync home
+      component: require('@/views/404.vue').default // load sync home
     },
     {
       path: '*',
