@@ -50,8 +50,9 @@
         <div class="row">
           <div class="col-12">
             <div class="portfolio-title">
-              <h2>“In photography there is a reality so subtle that it becomes more
-                <span>real</span> than reality.”</h2>
+              <h2>“Разве не чудо, что камера умеет останавливать время, навсегда сохраняя в памяти
+                волшебные моменты: красивые закаты, дни рождения, глазированные капкейки с соленой
+                карамелью, покрытые глазурью?” Зои Сагг</h2>
             </div>
           </div>
         </div>
@@ -131,11 +132,10 @@
         <div class="row">
           <div class="col-12">
             <div class="call-to-action-content wow fadeInUp" data-wow-delay="0.5s">
-              <h2>I am an experienced photographer</h2>
-              <h5>Let’s talk</h5>
-              <router-link class="btn sonar-btn mt-100"
+              <h2>Я опытный фотограф</h2>
+              <router-link class="btn sonar-btn mt-15"
                            :to="{name: 'contact', query: { scroll: true }}">
-                contact me
+                контакты
               </router-link>
             </div>
           </div>

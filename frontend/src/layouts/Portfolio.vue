@@ -36,12 +36,14 @@ export default {
           <div class="row h-100 align-items-center justify-content-center">
             <div class="col-12 col-md-8">
               <div class="line"></div>
-              <h2>Take a look at my Portfolio</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vel tortor
-                facilisis, volutpat nulla placerat, tincidunt mi. Nullam vel orci dui.</p>
+              <h2>Моё портфолио</h2>
+              <p>"Сделанные мною фотопортреты больше говорят обо мне, чем о людях, которых я
+                фотографирую." Ричард Эйвдон <br>
+                Полагаю, что бы ни было написано в биографии, лучший способ оценить фотографа – это
+                посмотреть на его портфолио. И фотографии сами все о нем расскажут.</p>
               <router-link class="btn sonar-btn white-btn"
                            :to="{name: 'contact', query: { scroll: true }}">
-                contact me
+                контакты
               </router-link>
             </div>
           </div>
