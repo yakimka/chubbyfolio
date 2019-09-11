@@ -38,6 +38,13 @@ CHUBBYFOLIO_DOMAIN - домен сайта без www
     
     - `docker-compose up --build`
 
+## Google Analytics, robots.txt, etc.
+
+Если положить в директорию `frontend/additional_prod_files/static_root` файлы, то при сборке бандла все они будут скопированы в `dist`.
+Тоесть это можно использовать для `robots.txt`, файлов подтверждения владения доменом и т.д.
+
+Также, если создать файл `frontend/additional_prod_files/head_content.html` и поместить в него html - содержимое файла будет вставлено в низ секции head сайта. Это удобно использовать для google analytics и подобного.
+
 ## Ссылки
 
 1. [Инструкция по созданию "dockerized" веб приложения с использованием DRF и React](https://gist.github.com/genomics-geek/98929a9e7ba9602fed7bfa4a5a1c5c4e)
