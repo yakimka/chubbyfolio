@@ -49,4 +49,4 @@ CHUBBYFOLIO_DOMAIN - домен сайта без www
 
 1. [Инструкция по созданию "dockerized" веб приложения с использованием DRF и React](https://gist.github.com/genomics-geek/98929a9e7ba9602fed7bfa4a5a1c5c4e)
 2. [Настройка Lets Encrypt + Nginx для Docker](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
-
+3. [Миграция с vue-cli 2 на 3](https://medium.com/jinweijie/migrate-from-vue-cli-2-to-3-16f14e7febdc)
