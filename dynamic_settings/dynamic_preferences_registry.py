@@ -23,3 +23,12 @@ class FacebookLink(StringPreference):
     verbose_name = 'Facebook link'
     default = ''
     required = False
+
+
+@global_preferences_registry.register
+class PhoneNumber(StringPreference):
+    section = social
+    name = 'phone_number'
+    verbose_name = 'Phone number'
+    default = ''
+    required = True

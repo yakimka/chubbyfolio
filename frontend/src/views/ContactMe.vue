@@ -8,15 +8,15 @@
            style="background-image: url(/img/bg-img/contact.jpg);"></div>
 
       <!-- Hero Content -->
-      <div class="hero-content equalize">
+      <div id="phone-block" class="hero-content equalize">
         <div class="container-fluid h-100">
           <div class="row h-100 align-items-center justify-content-center">
             <div class="col-12 col-md-8">
               <div class="line"></div>
               <h2>Контакты</h2>
-              <p>+3123123123</p>
+              <p>{{ phoneNumber }}</p>
               <a href="#" v-scroll-to="'#contact-me'" class="btn sonar-btn white-btn">
-                написать мне
+                или напишите мне
               </a>
             </div>
           </div>
@@ -35,7 +35,7 @@
         <div class="row">
           <!-- Contact Form Area -->
           <div class="col-12">
-            <div class="contact-form text-center">
+            <div class="contact-form text-center bg-white-alpha">
 
               <h2>Напишите мне и я Вам перезвоню</h2>
 
@@ -115,6 +115,7 @@ import Errors from '@/Errors';
 export default {
   data() {
     return {
+      phoneNumber: '',
       message: {
         name: '',
         phone: '',
@@ -172,11 +173,17 @@ export default {
     }
   },
   created() {
-    this.$parent.$emit('spinner-state', false);
+    Api.getPreferences({ section: 'social' })
+      .then(response => {
+        this.phoneNumber = response.data.phone_number;
+      })
+      .then(() => {
+        this.$parent.$emit('spinner-state', false);
+      });
   },
   mounted() {
     if (this.$route.query.hasOwnProperty('scroll')) {
-      this.$scrollTo('#contact-me');
+      this.$scrollTo('#phone-block');
     }
   }
 };

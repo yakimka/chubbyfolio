@@ -56,10 +56,7 @@
             <ul @click="menuOpen = false">
               <b-nav-item :to="{name: 'home'}">Главная</b-nav-item>
               <b-nav-item :to="{name: 'portfolio'}">Портфолио</b-nav-item>
-              <b-nav-item to="#" v-scroll-to="'#contact-me'" v-if="isContactPage">Контакты
-              </b-nav-item>
-              <b-nav-item :to="{name: 'contact'}" v-else>Контакты
-              </b-nav-item>
+              <b-nav-item :to="{name: 'contact'}">Контакты</b-nav-item>
               <b-nav-item :to="{name: 'about'}">Обо мне</b-nav-item>
             </ul>
           </nav>
@@ -100,9 +97,6 @@ export default {
   computed: {
     isScrollOnTop: function () {
       return this.scrollPosition !== null && this.scrollPosition > 10;
-    },
-    isContactPage: function () {
-      return this.$route.name === 'contact';
     }
   },
   created() {

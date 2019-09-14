@@ -132,7 +132,7 @@
         <div class="row">
           <div class="col-12">
             <div class="call-to-action-content wow fadeInUp" data-wow-delay="0.5s">
-              <h2>Я опытный фотограф</h2>
+              <h2>Заказать фотосессию</h2>
               <router-link class="btn sonar-btn mt-15"
                            :to="{name: 'contact', query: { scroll: true }}">
                 контакты

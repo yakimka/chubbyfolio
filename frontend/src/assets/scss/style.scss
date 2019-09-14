@@ -12,6 +12,10 @@ $animationDuration: 0.5s;
 
 /* :: Base CSS */
 
+.bg-white-alpha {
+  background-color: $color-white-alpha;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1496,18 +1500,14 @@ img {
 .sonar-about-us-area {
   position: relative;
   z-index: 1;
-  padding: 120px 0;
+  padding: 60px 0;
   overflow: hidden;
 
-  &::after {
-    content: "";
-    width: 50%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: $color-white;
-    position: absolute;
-    z-index: -5;
+  @media #{$breakpoint-xl} {
+    padding: 120px 0;
+  }
+  @media #{$breakpoint-lg} {
+    padding: 120px 0;
   }
 
   &.second-part {
@@ -1547,6 +1547,10 @@ img {
       line-height: 1.8;
       font-weight: 300;
     }
+  }
+
+  .hero-area {
+    background-color: $color-white;
   }
 
   .backEnd-content {

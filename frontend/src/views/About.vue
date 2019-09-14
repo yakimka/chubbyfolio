@@ -33,15 +33,10 @@
     <!-- ***** Hero Area End ***** -->
 
     <div class="sonar-about-us-area bg-img">
-      <!-- Back End Content -->
-      <div class="backEnd-content">
-        <h2>Dream</h2>
-      </div>
-
       <div class="container-fluid">
         <div class="row">
           <div class="col-12 col-md-12 col-lg-12">
-            <div class="about-us-content bg-white">
+            <div class="about-us-content bg-white-alpha">
               <div class="section-heading text-left wow fadeInUp" data-wow-delay="300ms">
                 <div class="line"></div>
                 <h2>Обо мне</h2>
@@ -52,7 +47,39 @@
                 значимость жизни. Не только сегодня, но и годы спустя.
                 Фотография всегда была моим хобби, но благодаря Киевской школе фотографии мое
                 увлечение превратилось в профессию. Основными жанрами, в которых я работаю являются
-                портретная фотография, репортажная съемка, а также food photo.</p>
+                портретная фотография, репортажная съемка, а также food photo.
+              </p>
+              <div class="section-heading text-left mt-100 wow fadeInUp" data-wow-delay="300ms">
+                <div class="line"></div>
+                <h2>Мои сертификаты</h2>
+              </div>
+              <div class="wow fadeInUp" data-wow-delay="600ms">
+                <div class="hero-area">
+                  <carousel class="hero-slides"
+                            :items="2"
+                            :margin="40"
+                            :loop="true"
+                            :dots="false"
+                            :autoplay="true"
+                            :autoplayTimeout="5000"
+                            :smartSpeed="1000"
+                            :nav="false"
+                            :responsive="{
+                            0: {
+                                items: 1
+                            },
+                            992: {
+                                items: 2
+                            },
+                            1280: {
+                                items: 3
+                            }}">
+                    <!-- Single Hero Slide -->
+                    <img alt="сертификат" v-for="i in numberOfCerts" :key="i"
+                         :src="`${certPath}${i}.${certExt}`">
+                  </carousel>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -62,7 +89,20 @@
 </template>
 
 <script>
+import carousel from 'vue-owl-carousel';
+
+const certificateName = 'cert_';
+
 export default {
+  data() {
+    return {
+      numberOfCerts: 6,
+      certPath: `/img/certs/${certificateName}`,
+      certExt: 'jpg',
+      phoneNumber: ''
+    };
+  },
+  components: { carousel },
   created() {
     this.$parent.$emit('spinner-state', false);
   }
