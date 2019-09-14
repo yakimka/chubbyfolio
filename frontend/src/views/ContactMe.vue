@@ -66,7 +66,7 @@
                     method="post"
                     @keydown="errors.clear($event.target.name)">
                 <div class="row">
-                  <div class="col-12 col-md-4">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <input type="text" class="form-control"
                              name="name"
@@ -78,7 +78,7 @@
                       </small>
                     </div>
                   </div>
-                  <div class="col-12 col-md-4">
+                  <div class="col-12 col-md-6">
                     <div class="form-group">
                       <input type="tel" class="form-control"
                              name="phone"
@@ -88,18 +88,6 @@
                              v-mask="'+38(###) ###-##-##'">
                       <small class="text-danger" v-if="errors.has('phone')">
                         {{ errors.get('phone') }}
-                      </small>
-                    </div>
-                  </div>
-                  <div class="col-12 col-md-4">
-                    <div class="form-group">
-                      <input type="email" class="form-control"
-                             name="email"
-                             :class="{'is-invalid': errors.has('email')}"
-                             v-model="message.email"
-                             placeholder="Ваш Email (необязательно)">
-                      <small class="text-danger" v-if="errors.has('email')">
-                        {{ errors.get('email') }}
                       </small>
                     </div>
                   </div>
@@ -143,7 +131,6 @@ export default {
       message: {
         name: '',
         phone: '',
-        email: '',
         text: ''
       },
       errors: new Errors()
@@ -159,7 +146,7 @@ export default {
           this.clearForm();
           this.$swal({
             title: 'Сообщение отправлено',
-            text: 'Мы свяжемся с вами в ближайшее время',
+            text: 'Я позвоню Вам в ближайшее время',
             type: 'success',
             confirmButtonText: 'На главную'
           })
