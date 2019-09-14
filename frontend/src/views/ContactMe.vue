@@ -111,6 +111,7 @@
 <script>
 import Api from '@/Api';
 import Errors from '@/Errors';
+import { getSocialInfo } from '@/helpers';
 
 export default {
   data() {
@@ -173,9 +174,9 @@ export default {
     }
   },
   created() {
-    Api.getPreferences({ section: 'social' })
-      .then(response => {
-        this.phoneNumber = response.data.phone_number;
+    getSocialInfo()
+      .then(data => {
+        this.phoneNumber = data.phone_number;
       })
       .then(() => {
         this.$parent.$emit('spinner-state', false);

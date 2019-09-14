@@ -79,7 +79,7 @@
 </template>
 
 <script>
-import Api from '@/Api';
+import { getSocialInfo } from '@/helpers';
 
 export default {
   data() {
@@ -100,9 +100,9 @@ export default {
     }
   },
   created() {
-    Api.getPreferences({ section: 'social' })
-      .then(response => {
-        this.social = response.data;
+    getSocialInfo()
+      .then(data => {
+        this.social = data;
       });
   },
   mounted() {
