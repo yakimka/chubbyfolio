@@ -60,7 +60,7 @@
             <ul @click="menuOpen = false">
               <b-nav-item :to="{name: 'home'}">Главная</b-nav-item>
               <b-nav-item :to="{name: 'portfolio'}">Портфолио</b-nav-item>
-              <b-nav-item :to="{name: 'contact'}">Контакты</b-nav-item>
+              <b-nav-item :to="{name: 'contact', query: { scroll: true }}">Контакты</b-nav-item>
               <b-nav-item :to="{name: 'about'}">Обо мне</b-nav-item>
             </ul>
           </nav>

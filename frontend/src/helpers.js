@@ -17,12 +17,10 @@ function setLoadingState(that, state) {
 export async function getSocialInfo() {
   const cached = getSocialInfoFromCache();
   if (cached) {
-    console.log('from cache');
     return cached;
   }
 
   const response = await Api.getPreferences({ section: 'social' });
-  console.log('from server');
   const resData = response.data;
   cacheSocialInfo(resData);
   return resData;

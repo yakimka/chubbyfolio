@@ -45,6 +45,14 @@ CHUBBYFOLIO_DOMAIN - домен сайта без www
 
 Также, если создать файл `frontend/additional_prod_files/head_content.html` и поместить в него html - содержимое файла будет вставлено в низ секции head сайта. Это удобно использовать для google analytics и подобного.
 
+## Переменные окружения и sudo docker
+
+При запуске docker с помощью sudo не будут переданы переменные окружения. Поэтому поднимать контейнеры нужно так:
+
+```
+sudo CHUBBYFOLIO_DOMAIN=example.com docker-compose up --build
+```
+
 ## Ссылки
 
 1. [Инструкция по созданию "dockerized" веб приложения с использованием DRF и React](https://gist.github.com/genomics-geek/98929a9e7ba9602fed7bfa4a5a1c5c4e)
