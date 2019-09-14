@@ -6,3 +6,4 @@ easy-thumbnails
 Pillow
 psycopg2-binary
 python-decouple
+django-extensions
