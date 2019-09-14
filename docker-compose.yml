@@ -34,7 +34,7 @@ services:
       context: ./frontend
     volumes:
       - ./frontend/dist/:/home/node/app/dist
-    env_file: ./frontend/.env
+    env_file: ./frontend/.env.production.local
 
   nginx:
     container_name: nginx_server

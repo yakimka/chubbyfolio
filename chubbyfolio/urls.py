@@ -4,7 +4,7 @@ from django.contrib import admin
 from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('flf7eiu2ocn/', admin.site.urls),
     path('api/', include([
         path('photosets/', include('photosets.urls'), name='photosets'),
         path('dynamic-settings/', include('dynamic_settings.urls'), name='dynamic_settings'),
