@@ -28,7 +28,7 @@ class MainScreenPhoto(models.Model):
 
     def clean(self):
         # Don't allow create more than n photos
-        if MainScreenPhoto.objects.count() >= self.MAX_OBJECTS:
+        if self.pk is None and MainScreenPhoto.objects.count() >= self.MAX_OBJECTS:
             raise ValidationError(
                 _('Разрешено максимум %(count)d фотографий' % {'count': self.MAX_OBJECTS}))
         super().clean()
