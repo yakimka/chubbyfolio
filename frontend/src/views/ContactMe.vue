@@ -11,11 +11,34 @@
       <div id="phone-block" class="hero-content equalize">
         <div class="container-fluid h-100">
           <div class="row h-100 align-items-center justify-content-center">
-            <div class="col-12 col-md-8">
+            <div class="col-12 col-md-8" v-if="social">
               <div class="line"></div>
               <h2>Контакты</h2>
-              <p>{{ phoneNumber }}</p>
-              <a href="#" v-scroll-to="'#contact-me'" class="btn sonar-btn white-btn">
+              <div class="contact-me-social-area">
+                <p><span>Город Киев</span></p>
+                <p>
+                  <a :href="`tel:${social.phone_number}`" data-toggle="tooltip"
+                     data-placement="bottom" title="Phone Number" v-if="social.phone_number">
+                    <font-awesome-icon :icon="['fa', 'phone']"/>
+                    {{ social.phone_number }}
+                  </a>
+                </p>
+                <p>
+                  <a :href="social.instagram_link" target="_blank" data-toggle="tooltip"
+                     data-placement="bottom" title="Instagram" v-if="social.instagram_link">
+                    <font-awesome-icon :icon="['fab', 'instagram']"/>
+                    Instagram
+                  </a>
+                </p>
+                <p>
+                  <a :href="social.facebook_link" target="_blank" data-toggle="tooltip"
+                     data-placement="bottom" title="Facebook" v-if="social.facebook_link">
+                    <font-awesome-icon :icon="['fab', 'facebook']"/>
+                    Facebook
+                  </a>
+                </p>
+              </div>
+              <a href="#" v-scroll-to="'#contact-me'" class="btn sonar-btn white-btn mt-25">
                 или напишите мне
               </a>
             </div>
@@ -116,7 +139,7 @@ import { getSocialInfo } from '@/helpers';
 export default {
   data() {
     return {
-      phoneNumber: '',
+      social: null,
       message: {
         name: '',
         phone: '',
@@ -176,7 +199,7 @@ export default {
   created() {
     getSocialInfo()
       .then(data => {
-        this.phoneNumber = data.phone_number;
+        this.social = data;
       })
       .then(() => {
         this.$parent.$emit('spinner-state', false);

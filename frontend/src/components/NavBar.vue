@@ -16,6 +16,10 @@
               <div class="menu-content-area d-flex align-items-center">
                 <!-- Header Social Area -->
                 <div class="header-social-area d-flex align-items-center" v-if="social">
+                  <router-link :to="{ name: 'contact', query: { scroll: true }}" data-toggle="tooltip"
+                    data-placement="bottom" title="Contact Me">
+                    <font-awesome-icon :icon="['fa', 'address-book']"/>
+                  </router-link>
                   <a :href="social.instagram_link" target="_blank" data-toggle="tooltip"
                      data-placement="bottom" title="Instagram" v-if="social.instagram_link">
                     <font-awesome-icon :icon="['fab', 'instagram']"/>

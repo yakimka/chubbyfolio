@@ -164,6 +164,10 @@ img {
   margin-top: 15px;
 }
 
+.mt-25 {
+  margin-top: 25px;
+}
+
 .mt-30 {
   margin-top: 30px;
 }
@@ -1121,7 +1125,7 @@ img {
 
   .hero-content {
     height: 480px;
-    padding: 100px 0;
+    padding: 60px 0;
 
     .line {
       width: 100px;
@@ -1494,6 +1498,25 @@ img {
     margin: 0 20px;
   }
 }
+
+#phone-block {
+  .contact-me-social-area {
+    p {
+      margin-bottom: 10px;
+      span, a {
+        font-size: 18px;
+        padding: 0 10px;
+        color: $color-white;
+        font-weight: 400;
+        @media #{$breakpoint-xs} {
+          padding: 0 5px;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
 
 /* :: About Area CSS */
 

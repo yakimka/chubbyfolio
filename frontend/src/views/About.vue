@@ -49,11 +49,7 @@
                 увлечение превратилось в профессию. Основными жанрами, в которых я работаю являются
                 портретная фотография, репортажная съемка, а также food photo.
               </p>
-              <div class="section-heading text-left mt-100 wow fadeInUp" data-wow-delay="300ms">
-                <div class="line"></div>
-                <h2>Мои сертификаты</h2>
-              </div>
-              <div class="wow fadeInUp" data-wow-delay="600ms">
+              <div class="wow fadeInUp mt-70" data-wow-delay="600ms">
                 <div class="hero-area">
                   <carousel class="hero-slides"
                             :items="2"
