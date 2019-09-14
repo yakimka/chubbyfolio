@@ -579,7 +579,7 @@ img {
         padding: 0 10px;
         color: $color-white;
         @media #{$breakpoint-xs} {
-          padding: 0 5px;
+          padding: 0 12px;
           font-size: 14px;
         }
       }
@@ -803,7 +803,7 @@ img {
         font-size: 36px;
       }
       @media #{$breakpoint-xs} {
-        font-size: 30px;
+        font-size: 20px;
       }
     }
   }
@@ -1170,7 +1170,7 @@ img {
 
   .hero-thumbnail {
     @media #{$breakpoint-xs} {
-      height: 400px;
+      height: 440px;
     }
   }
 }
@@ -1499,7 +1499,7 @@ img {
   }
 }
 
-#phone-block {
+.phone-block {
   .contact-me-social-area {
     p {
       margin-bottom: 10px;

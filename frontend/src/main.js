@@ -31,7 +31,9 @@ Vue.component('font-awesome-icon', FontAwesomeIcon);
 Vue.use(BootstrapVue);
 Vue.use(VueMatchHeights);
 Vue.use(VueViewer);
-Vue.use(VueScrollTo);
+Vue.use(VueScrollTo, {
+  offset: -170
+});
 Vue.use(VueSweetalert2);
 Vue.use(VueTheMask);
 Vue.component('landing-layout', Landing);

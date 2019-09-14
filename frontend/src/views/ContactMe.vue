@@ -8,13 +8,13 @@
            style="background-image: url(/img/bg-img/contact.jpg);"></div>
 
       <!-- Hero Content -->
-      <div id="phone-block" class="hero-content equalize">
+      <div id="" class="hero-content phone-block equalize">
         <div class="container-fluid h-100">
           <div class="row h-100 align-items-center justify-content-center">
-            <div class="col-12 col-md-8" v-if="social">
+            <div class="col-12 col-md-8">
               <div class="line"></div>
-              <h2>Контакты</h2>
-              <div class="contact-me-social-area">
+              <h2 id="contacts">Контакты</h2>
+              <div class="contact-me-social-area" v-if="social">
                 <p><span>Город Киев</span></p>
                 <p>
                   <a :href="`tel:${social.phone_number}`" data-toggle="tooltip"
@@ -62,7 +62,8 @@
 
               <h2>Напишите мне и я Вам перезвоню</h2>
 
-              <form action="#"
+              <form id="feedback-form"
+                    action="#"
                     method="post"
                     @keydown="errors.clear($event.target.name)">
                 <div class="row">
@@ -158,7 +159,9 @@ export default {
         })
         .catch(error => {
           this.errors.record(error.response.data);
-          if (!this.isErrorsInFields) {
+          if (this.isErrorsInFields) {
+            this.$scrollTo('#feedback-form');
+          } else {
             let errorText = 'Произошла ошибка. Попробуйте позже.';
             if (error.response.status === 429) {
               errorText = 'Вы превысили максимальное количество запросов. Повторите позже.';
@@ -194,7 +197,7 @@ export default {
   },
   mounted() {
     if (this.$route.query.hasOwnProperty('scroll')) {
-      this.$scrollTo('#phone-block');
+      this.$scrollTo('#contacts');
     }
   }
 };
