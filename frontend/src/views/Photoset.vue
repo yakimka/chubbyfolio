@@ -5,7 +5,7 @@
       <div class="container-fluid">
         <div class="row sonar-portfolio"
              v-viewer="{
-             movable: false,
+             movable: true,
              url: 'url',
              'rotatable': false,
              'scalable': false,
