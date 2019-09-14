@@ -1,7 +1,7 @@
 #!/bin/sh
 mkdir -p static
-chown 1000 -R static
+chown 1000:users -R static
 mkdir -p media
-chown 1000 -R media
+chown 1000:users -R media
 mkdir -p frontend/dist
-chown 1000 -R frontend/dist
+chown 1000:users -R frontend/dist
