@@ -79,8 +79,8 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
-media
-static
-data
+/media
+/static
+/data
 
 /.*env
