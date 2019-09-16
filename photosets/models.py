@@ -41,7 +41,7 @@ class Photoset(models.Model):
     class Meta:
         verbose_name = _('Фотосет')
         verbose_name_plural = _('Фотосеты')
-        ordering = ['-date_updated']
+        ordering = ['-date_created']
 
     def __str__(self):
         return '{0} ({1} photos)'.format(self.name, self.photos.count())
@@ -55,8 +55,11 @@ class Photoset(models.Model):
 
     @property
     def cover(self):
-        first_photo = self.photos.first()
-        return first_photo.thumbnail if first_photo else None
+        cover = self.photos.filter(is_cover=True).first()
+        if not cover:
+            cover = self.photos.last()
+
+        return cover.thumbnail if cover else None
 
     @property
     def preview_thumbnail(self):
@@ -66,7 +69,6 @@ class Photoset(models.Model):
 
 
 class Photo(models.Model):
-    name = models.CharField(max_length=1024, blank=True, verbose_name=_('Название'))
     image = ThumbnailerImageField(upload_to=upload_photosets_to,
                                   verbose_name=_('Изображение'),
                                   validators=[validate_photoset_photo])
@@ -74,6 +76,7 @@ class Photo(models.Model):
                                  on_delete=models.CASCADE,
                                  verbose_name=_('Фотосет'))
     crop = models.CharField(max_length=56, blank=True)
+    is_cover = models.BooleanField(default=False, verbose_name=_('Обложка'))
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
 
@@ -83,7 +86,7 @@ class Photo(models.Model):
         ordering = ['-date_created']
 
     def __str__(self):
-        return self.name or self.image.url.split('/')[-1]
+        return self.image.url.split('/')[-1]
 
     def get_crop(self):
         return True if self.crop == '' else self.crop

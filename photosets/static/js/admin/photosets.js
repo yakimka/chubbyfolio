@@ -1,5 +1,6 @@
 const $ = django.jQuery;
 
+
 class ExtendableError extends Error {
   constructor(message) {
     super(message);
@@ -121,6 +122,7 @@ class ImageCropper {
 }
 
 $(document).ready(function () {
+  // Apply jCrop to images
   let errors = 0;
   let previewElements = document.querySelectorAll('.field-image img');
 
@@ -147,4 +149,12 @@ $(document).ready(function () {
     console.error(`${errors} ошибок при попытке прочитать координаты`);
     alert('Возникла ошибка. Сохраните страницу чтобы попробовать исправить её.');
   }
+  // End apply jCrop to images
+});
+
+
+// Uncheck other covers on click on the checkbox
+$(document).on('click', '.field-is_cover input', function () {
+  $('.field-is_cover input').prop('checked', false);
+  $(this).prop('checked', true);
 });

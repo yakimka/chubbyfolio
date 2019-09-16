@@ -39,7 +39,7 @@ class ThumbnailerImageWidget(forms.ClearableFileInput):
 class PhotoAdminForm(models.ModelForm):
     class Meta:
         model = Photo
-        fields = ('name', 'image', 'crop')
+        fields = ('is_cover', 'image', 'crop')
 
         widgets = {
             'crop': widgets.HiddenInput(attrs={'class': 'image-crop'}),
@@ -51,7 +51,7 @@ class PhotoInline(admin.TabularInline):
     model = Photo
     extra = 0
     form = PhotoAdminForm
-    fields = ('name', 'image', 'crop')
+    fields = ('is_cover', 'image', 'crop')
 
 
 @admin.register(Photoset)
