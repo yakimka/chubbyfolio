@@ -121,33 +121,56 @@ class ImageCropper {
   }
 }
 
+
+function createCropper(imgEl) {
+  const im = new ImageCropper(imgEl);
+
+  $(imgEl).Jcrop({
+    allowResize: false,
+    allowSelect: false,
+    setSelect: im.getSelectAreaCoordinates(),
+    onSelect: im.setCropValueToHTMLIfNeeded
+  });
+
+  return im
+}
+
+function checkErrors(errors) {
+  if (errors > 0) {
+    console.error(`${errors} ошибок при попытке прочитать координаты`);
+    alert('Возникла ошибка. Сохраните страницу чтобы попробовать исправить её.');
+  }
+}
+
 $(document).ready(function () {
   // Apply jCrop to images
   let errors = 0;
   let previewElements = document.querySelectorAll('.field-image img');
+  const imagesCount = previewElements.length;
+  let imagesLoaded = 0;
 
   for (let imgEl of previewElements) {
     try {
-      const im = new ImageCropper(imgEl);
+      $(imgEl).one("load", function () {
+        imagesLoaded += 1;
 
-      $(imgEl).Jcrop({
-        allowResize: false,
-        allowSelect: false,
-        setSelect: im.getSelectAreaCoordinates(),
-        onSelect: im.setCropValueToHTMLIfNeeded
+        const im = createCropper(imgEl);
+
+        if (im.isError) {
+          errors += 1;
+        }
+
+        if (imagesLoaded === imagesCount) {
+          checkErrors(errors);
+        }
+      }).each(function () {
+        if (this.complete) {
+          $(this).trigger('load');
+        }
       });
-
-      if (im.isError) {
-        errors += 1;
-      }
     } catch (e) {
       console.error(e);
     }
-  }
-
-  if (errors > 0) {
-    console.error(`${errors} ошибок при попытке прочитать координаты`);
-    alert('Возникла ошибка. Сохраните страницу чтобы попробовать исправить её.');
   }
   // End apply jCrop to images
 });
