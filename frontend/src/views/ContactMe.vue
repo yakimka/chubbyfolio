@@ -147,7 +147,7 @@ export default {
           this.clearForm();
           this.$swal({
             title: 'Сообщение отправлено',
-            text: 'Я позвоню Вам в ближайшее время',
+            text: 'Я перезвоню Вам в ближайшее время',
             type: 'success',
             confirmButtonText: 'На главную'
           })
