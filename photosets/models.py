@@ -28,19 +28,20 @@ def validate_photoset_photo(image):
 
 
 class Photoset(models.Model):
-    class Meta:
-        verbose_name = _('фотосет')
-        verbose_name_plural = _('фотосеты')
-
-    name = models.CharField(max_length=1024, verbose_name=_('название'))
-    description = models.TextField(blank=True, verbose_name=_('описание'))
-    published = models.BooleanField(default=True, verbose_name=_('опубликовано'))
+    name = models.CharField(max_length=1024, verbose_name=_('Название'))
+    description = models.TextField(blank=True, verbose_name=_('Описание'))
+    published = models.BooleanField(default=True, verbose_name=_('Опубликовано'))
     preview = ThumbnailerImageField(upload_to=upload_previews_to,
-                                    verbose_name=_('превью для главной'),
+                                    verbose_name=_('Превью для главной'),
                                     null=True, blank=True)
-    show_on_mainpage = models.BooleanField(default=False, verbose_name=_('показывать на главной'))
+    show_on_mainpage = models.BooleanField(default=False, verbose_name=_('Показывать на главной'))
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = _('Фотосет')
+        verbose_name_plural = _('Фотосеты')
+        ordering = ['-date_updated']
 
     def __str__(self):
         return '{0} ({1} photos)'.format(self.name, self.photos.count())
@@ -65,16 +66,21 @@ class Photoset(models.Model):
 
 
 class Photo(models.Model):
-    name = models.CharField(max_length=1024, blank=True, verbose_name=_('название'))
+    name = models.CharField(max_length=1024, blank=True, verbose_name=_('Название'))
     image = ThumbnailerImageField(upload_to=upload_photosets_to,
-                                  verbose_name=_('изображение'),
+                                  verbose_name=_('Изображение'),
                                   validators=[validate_photoset_photo])
     photoset = models.ForeignKey(Photoset, related_name='photos', null=True,
                                  on_delete=models.CASCADE,
-                                 verbose_name=_('фотосет'))
+                                 verbose_name=_('Фотосет'))
     crop = models.CharField(max_length=56, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = _('Фото')
+        verbose_name_plural = _('Фото')
+        ordering = ['-date_created']
 
     def __str__(self):
         return self.name or self.image.url.split('/')[-1]
