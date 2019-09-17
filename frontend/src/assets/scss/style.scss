@@ -817,6 +817,13 @@ img {
   position: relative;
   z-index: 1;
 
+  .portfolio-thumb, .portfolio-meta {
+    @media #{$breakpoint-xs} {
+      text-align: center;
+    }
+  }
+
+
   .backend-content {
     .dots {
       position: absolute;
