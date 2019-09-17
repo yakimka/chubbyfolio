@@ -10,7 +10,7 @@ import router from '@/router';
 import VueSweetalert2 from 'vue-sweetalert2';
 import VueTheMask from 'vue-the-mask';
 
-import BootstrapVue from 'bootstrap-vue';
+import { NavPlugin } from 'bootstrap-vue';
 import VueMatchHeights from 'vue-match-heights';
 import VueViewer from 'v-viewer';
 import VueScrollTo from 'vue-scrollto';
@@ -20,15 +20,15 @@ import Blank from '@/layouts/Blank.vue';
 import TopPage from '@/components/TopPage';
 import MainScreenPhoto from '@/components/MainScreenPhoto';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { fas } from '@fortawesome/free-solid-svg-icons';
-import { fab } from '@fortawesome/free-brands-svg-icons';
+import { faAddressBook, faPhone, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
+import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-library.add(fas, fab);
+library.add(faTimesCircle, faInstagram, faFacebook, faPhone, faAddressBook);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 
-Vue.use(BootstrapVue);
+Vue.use(NavPlugin);
 Vue.use(VueMatchHeights);
 Vue.use(VueViewer);
 Vue.use(VueScrollTo, {
