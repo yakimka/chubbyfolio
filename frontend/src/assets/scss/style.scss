@@ -730,6 +730,10 @@ img {
     overflow: visible;
     cursor: pointer;
 
+    @media #{$breakpoint-xs} {
+      background-position: top;
+    }
+
     .hero-slides-content {
       position: relative;
       z-index: 1;
