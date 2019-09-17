@@ -13,21 +13,35 @@ if (process.env.NODE_ENV === 'production') {
 
 module.exports = {
   css: {
-    sourceMap: true
+    sourceMap: process.env.NODE_ENV !== 'production'
   },
-  configureWebpack: {
-    devtool: 'source-map',
-    plugins: [
-      // copy custom static assets
-      new CopyWebpackPlugin([
-        {
-          from: 'additional_prod_files/static_root',
-          to: '.'
-        }
-      ]),
+  configureWebpack: config => {
+    const newConfig = {
+      plugins: []
+    };
+
+    newConfig.plugins.push(
       new webpack.DefinePlugin({
         'VUE_APP_ADDITIONAL_HEAD_CONTENT': `"${additionalHeadContend}"`
       })
-    ]
+    );
+
+    if (process.env.NODE_ENV === 'production') {
+      delete config.devtool;
+
+      // copy custom static assets
+      newConfig.plugins.push(
+        new CopyWebpackPlugin([
+          {
+            from: 'additional_prod_files/static_root',
+            to: '.'
+          }
+        ])
+      );
+    } else {
+      newConfig.devtool = 'source-map';
+    }
+
+    return newConfig;
   }
 };
