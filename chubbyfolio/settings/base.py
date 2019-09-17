@@ -50,6 +50,8 @@ THIRD_PARTY_APPS = [
     'rest_framework',
     'corsheaders',
     'easy_thumbnails',
+    'easy_thumbnails.optimize',
+    'django_extensions'
 ]
 
 LOCAL_APPS = [
@@ -201,4 +203,8 @@ THUMBNAIL_ALIASES = {
         'p6': {'size': (326, 469), 'crop': 'smart', 'quality': 90},
         'p7': {'size': (360, 531), 'crop': 'smart', 'quality': 90},
     },
+}
+
+THUMBNAIL_OPTIMIZE_COMMAND = {
+    'jpeg': '/usr/bin/jpegoptim {filename} --strip-all',
 }

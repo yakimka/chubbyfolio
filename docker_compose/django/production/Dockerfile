@@ -2,6 +2,8 @@ FROM python:3.6
 
 ENV PYTHONUNBUFFERED 1
 
+RUN apt install jpegoptim
+
 # Requirements have to be pulled and installed here, otherwise caching won't work
 COPY ./requirements/production.txt /requirements.txt
 
