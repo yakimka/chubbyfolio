@@ -66,9 +66,19 @@ docker exec -it django_server bash
 python manage.py createsuperuser
 ``` 
 
+## Local https (staging image)
+
+1. Устанавливаем `mkcert`
+2. Устанавливаем сертификаты в систему `mkcert -install` (понадобится перезапуск браузера)
+3. Создаем сертификаты `mkcert foo.test`
+4. Копируем их в `data/certs`
+5. Делаем запись в `/etc/hosts` `127.0.0.1 foo.test`
+6. Не забываем задать в переменные среды домен
+
 ## Ссылки
 
 1. [Инструкция по созданию "dockerized" веб приложения с использованием DRF и React](https://gist.github.com/genomics-geek/98929a9e7ba9602fed7bfa4a5a1c5c4e)
 2. [Настройка Lets Encrypt + Nginx для Docker](https://medium.com/@pentacent/nginx-and-lets-encrypt-with-docker-in-less-than-5-minutes-b4b8a60d3a71)
 3. [Миграция с vue-cli 2 на 3](https://medium.com/jinweijie/migrate-from-vue-cli-2-to-3-16f14e7febdc)
 4. [Удаление контейнеров, образов и т.д.](https://linuxize.com/post/how-to-remove-docker-images-containers-volumes-and-networks/)
+5. [Docker Compose Local HTTPS with nginx or Caddy and mkcert](https://codewithhugo.com/docker-compose-local-https/)

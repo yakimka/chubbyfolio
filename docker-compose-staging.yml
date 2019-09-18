@@ -11,7 +11,7 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - postgres_backup:/backups
-    env_file: .env.production.local
+    env_file: .env.staging.local
 
   django:
     container_name: django_server
@@ -25,7 +25,7 @@ services:
       - ./static/:/app/static/
       - ./media/:/app/media/
     command: /start.sh
-    env_file: .env.production.local
+    env_file: .env.staging.local
 
   vuejs:
     container_name: vuejs_server
@@ -34,12 +34,12 @@ services:
       context: ./frontend
     volumes:
       - ./frontend/dist/:/home/node/app/dist
-    env_file: ./frontend/.env.production.local
+    env_file: ./frontend/.env.staging.local
 
   nginx:
     container_name: nginx_server
     build:
-      context: ./docker_compose/nginx/production
+      context: ./docker_compose/nginx/staging
       args:
         - CHUBBYFOLIO_DOMAIN
     environment:
@@ -51,17 +51,8 @@ services:
       - ./static/:/static:ro
       - ./media/:/media:ro
       - ./frontend/dist/:/usr/share/nginx/html:ro
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
+      - ./data/certs:/etc/nginx/certs:ro
     ports:
       - "0.0.0.0:8000:8000"
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
