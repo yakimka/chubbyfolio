@@ -26,8 +26,8 @@
                 v-if="isPhotosets">
         <!-- Single Hero Slide -->
         <div v-for="photoset in photosets" :key="photoset.id"
-             class="single-hero-slide bg-img slide-background-overlay"
-             :style="{ backgroundImage: `url(${photoset.preview})` }"
+             class="single-hero-slide bg-img slide-background-overlay lazyload"
+             :data-bg="photoset.preview"
              @click="redirectToPhotoset(photoset.id)">
           <div class="container h-100">
             <div class="row h-100 align-items-end">

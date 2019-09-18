@@ -23,6 +23,8 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { faAddressBook, faPhone, faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import 'lazysizes';
+import 'lazysizes/plugins/attrchange/ls.attrchange';
 
 library.add(faTimesCircle, faInstagram, faFacebook, faPhone, faAddressBook);
 
@@ -54,4 +56,12 @@ new Vue({
   el: '#app',
   router,
   render: h => h(App)
+});
+
+// add simple support for background images:
+document.addEventListener('lazybeforeunveil', function (e) {
+  let bg = e.target.getAttribute('data-bg');
+  if (bg) {
+    e.target.style.backgroundImage = `url(${bg})`;
+  }
 });

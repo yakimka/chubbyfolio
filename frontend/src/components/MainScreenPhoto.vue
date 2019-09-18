@@ -5,7 +5,7 @@
       <h2 v-if="word">{{word}}</h2>
     </div>
     <div class="portfolio-thumb">
-      <img :src="photo[`image`]" alt="">
+      <img :data-src="photo.image" class="lazyload"  :alt="photo.name">
     </div>
     <div class="portfolio-meta">
       <p class="portfolio-date">{{photo.date}}</p>
