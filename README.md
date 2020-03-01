@@ -13,9 +13,10 @@ Chubbyfolio это сайт-визитка для фотографов.
 ##  Первый запуск
 
 1. Клонируем репозиторий на сервер
-2. Создаем файлы `.env` и `frontend/.env` (за основу берем файлы env.example)
+2. Создаем файл `.env` (за основу берем файл env.example)
 3. Запускаем скрипт `./create_dirs_and_fix_perms.sh` он создаст директории и выставит нужные права
-4. Запускаем `CHUBBYFOLIO_IS_STAGING=0 CHUBBYFOLIO_DOMAIN=example.com ./init-letsenctypt.sh` чтобы получить сертификат для сайта.
+4. Запускаем `./init-letsenctypt.sh DOMAIN EMAIL STAGING(1 или 0)` чтобы получить сертификат для сайта.
+
 ```
 CHUBBYFOLIO_IS_STAGING - 1 или 0
     1 чтобы протестировать конфигурацию и получить сертификат для проверки
@@ -71,9 +72,11 @@ python manage.py createsuperuser
 1. Устанавливаем `mkcert`
 2. Устанавливаем сертификаты в систему `mkcert -install` (понадобится перезапуск браузера)
 3. Создаем сертификаты `mkcert foo.test`
-4. Копируем их в `data/certs`
-5. Делаем запись в `/etc/hosts` `127.0.0.1 foo.test`
-6. Не забываем задать в переменные среды домен
+4. Копируем их в `data/ssl/conf/live/foo.test/{fullchain.pem,privkey.pem}`
+5. Создаем пустой файл в `data/ssl/conf/options-ssl-nginx.conf` 
+6. Создаем ключ Диффи Хеллмана `openssl dhparam -out data/ssl/conf/ssl-dhparams.pem 2048`
+7. Делаем запись в `/etc/hosts` `127.0.0.1 foo.test`
+8. Не забываем задать в переменные среды домен
 
 ## Ссылки
 

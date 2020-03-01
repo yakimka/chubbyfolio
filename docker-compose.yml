@@ -1,67 +1,63 @@
-version: '2'
+version: '3.4'
+
+x-restart-policy: &restart_policy
+  restart: 'no'
+
+networks:
+  main:
 
 volumes:
-  postgres_data: {}
   postgres_backup: {}
+  postgres_data: {}
 
 services:
-  postgres:
-    container_name: postgres_server
-    build: ./docker_compose/postgres
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-      - postgres_backup:/backups
-    env_file: .env.production.local
-
   django:
-    container_name: django_server
+    <<: *restart_policy
+    container_name: django
     build:
       context: .
-      dockerfile: ./docker_compose/django/production/Dockerfile
-    user: django
+      dockerfile: docker_compose/django/Dockerfile
+      args:
+        ENVIRONMENT: production
+    command: 'sh -c "wait-for-it postgres:5432 && /start"'
     depends_on:
       - postgres
+    env_file: .env
+    image: django-image
+    hostname: django
+    networks:
+      - main
     volumes:
-      - ./static/:/app/static/
-      - ./media/:/app/media/
-    command: /start.sh
-    env_file: .env.production.local
+      - './media/:/app/media/'
+
+  postgres:
+    <<: *restart_policy
+    container_name: postgres
+    environment:
+      - 'POSTGRES_USER=${POSTGRES_USER}'
+      - 'POSTGRES_PASSWORD=${POSTGRES_PASSWORD}'
+      - 'POSTGRES_DB=${POSTGRES_DB}'
+    hostname: postgres
+    image: 'postgres:12'
+    networks:
+      - main
+    volumes:
+      - 'postgres_data:/var/lib/postgresql/data'
+      - 'postgres_backup:/backups'
 
   vuejs:
-    container_name: vuejs_server
+    <<: *restart_policy
+    container_name: vuejs
     build:
-      dockerfile: ./docker_compose/vuejs/production/Dockerfile
-      context: ./frontend
-    volumes:
-      - ./frontend/dist/:/home/node/app/dist
-    env_file: ./frontend/.env.production.local
-
-  nginx:
-    container_name: nginx_server
-    build:
-      context: ./docker_compose/nginx/production
+      context: frontend
+      dockerfile: docker_compose/vuejs/Dockerfile
       args:
-        - CHUBBYFOLIO_DOMAIN
-    environment:
-      - CHUBBYFOLIO_DOMAIN
-    depends_on:
-      - django
-      - vuejs
-    volumes:
-      - ./static/:/static:ro
-      - ./media/:/media:ro
-      - ./frontend/dist/:/usr/share/nginx/html:ro
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
-    ports:
-      - "0.0.0.0:8000:8000"
-      - "0.0.0.0:80:80"
-      - "0.0.0.0:443:443"
-    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
-
-  certbot:
-    image: certbot/certbot
-    volumes:
-      - ./data/certbot/conf:/etc/letsencrypt
-      - ./data/certbot/www:/var/www/certbot
-    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"
+        - ENVIRONMENT=production
+        - VUE_APP_ROOT_API
+        - VUE_APP_SITE_URL
+        - VUE_APP_SITE_NAME
+        - VUE_APP_PHONE_NUMBER
+    env_file: .env
+    hostname: vuejs
+    networks:
+      - main
