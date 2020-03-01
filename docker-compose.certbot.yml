@@ -3,10 +3,6 @@ version: '3.4'
 x-restart-policy: &restart_policy
   restart: unless-stopped
 
-volumes:
-  redis_data: {}
-  static: {}
-
 services:
   certbot:
     <<: *restart_policy
