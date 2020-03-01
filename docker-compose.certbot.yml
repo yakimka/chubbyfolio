@@ -11,6 +11,10 @@ services:
   certbot:
     <<: *restart_policy
     image: certbot/certbot
+    container_name: certbot
+    hostname: certbot
+    networks:
+      - main
     volumes:
       - './data/ssl/conf:/etc/letsencrypt'
       - './data/ssl/www:/var/www/certbot'
