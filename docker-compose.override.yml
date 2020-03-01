@@ -1,0 +1,24 @@
+version: '3.4'
+
+services:
+  django:
+    build:
+      args:
+        ENVIRONMENT: development
+    ports:
+      - '8000:8000'
+    volumes:
+      - '.:/app'
+
+  postgres:
+    ports:
+      - '5432:5432'
+
+  vuejs:
+    build:
+      args:
+        ENVIRONMENT: development
+    ports:
+      - '8080:8080'
+    volumes:
+      - './frontend/:/home/node/app/'

@@ -1,16 +1,11 @@
-# virtual environments
-venv
-
-# Python files
-*.pyc
-__pycache__
-
-# Python Notebook dot files
-.ipynb*
-
 # Secret environment settings
 .env
 .env.*
+
+# Node and Webpack files
+node_modules
+npm-debug.log
+webpack-stats*
 
 # Static assests
 staticfiles
@@ -26,7 +21,5 @@ db.sqlite3
 # Apple files
 .DS_Store
 
-#frontend
 /frontend
-
-/static
+dist

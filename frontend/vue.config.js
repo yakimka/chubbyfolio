@@ -15,6 +15,9 @@ module.exports = {
   css: {
     sourceMap: process.env.NODE_ENV !== 'production'
   },
+  devServer: {
+    disableHostCheck: true
+  },
   configureWebpack: config => {
     const newConfig = {
       plugins: []
