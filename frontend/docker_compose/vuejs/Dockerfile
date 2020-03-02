@@ -1,4 +1,4 @@
-FROM node:12.9.0
+FROM node:12.16
 
 ARG ENVIRONMENT=production
 ARG VUE_APP_ROOT_API
