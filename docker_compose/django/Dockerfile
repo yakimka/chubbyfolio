@@ -27,6 +27,8 @@ RUN sed -i 's/\r//' /start.sh \
 
 RUN chown -R django /app
 
+EXPOSE 8000
+
 USER django
 
-ENTRYPOINT ["/start.sh"]
+CMD ["/start.sh"]
