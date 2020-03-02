@@ -10,7 +10,9 @@ WORKDIR /home/node/app
 
 COPY ./package*.json ./
 
+RUN npm install -g @vue/cli@4.2.3
 RUN npm install
+
 COPY . .
 RUN chown -R node /home/node/app
 
