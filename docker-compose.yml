@@ -19,7 +19,7 @@ services:
       dockerfile: docker_compose/django/Dockerfile
       args:
         ENVIRONMENT: production
-    command: 'wait-for-it postgres:5432 -- /start'
+    command: 'wait-for-it postgres:5432 -- /start.sh'
     depends_on:
       - postgres
     env_file: .env

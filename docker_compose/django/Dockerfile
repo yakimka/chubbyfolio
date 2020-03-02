@@ -21,7 +21,7 @@ RUN pip install -r /requirements.txt \
     && useradd -r -g django django --uid 1000
 
 COPY ./docker_compose/django/${ENVIRONMENT}/start.sh /start.sh
-RUN sed -i 's/\r//' /start.sh \
+RUN sed -i 's/\r$//g' /start.sh \
     && chmod +x /start.sh \
     && chown django /start.sh
 
