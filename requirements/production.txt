@@ -4,17 +4,20 @@
 #
 #    pip-compile --output-file=requirements/production.txt requirements.in/production.txt
 #
-django-cors-headers==3.1.0
-django-dynamic-preferences==1.7.1
-django-extensions==2.2.1
-django==2.2.5
-djangorestframework==3.10.3
-easy-thumbnails==2.6
-gunicorn==19.9.0
+django-cors-headers==3.2.1  # via -r requirements.in/base.txt
+django-dynamic-preferences==1.8.1  # via -r requirements.in/base.txt
+django-extensions==2.2.8  # via -r requirements.in/base.txt
+django==2.2.10            # via -r requirements.in/base.txt, django-cors-headers, django-dynamic-preferences, djangorestframework, easy-thumbnails
+djangorestframework==3.11.0  # via -r requirements.in/base.txt
+easy-thumbnails==2.7      # via -r requirements.in/base.txt
+gunicorn==20.0.4          # via -r requirements.in/production.txt
 persisting-theory==0.2.1  # via django-dynamic-preferences
-pillow==6.1.0
-psycopg2-binary==2.8.3
-python-decouple==3.1
-pytz==2019.2              # via django
-six==1.12.0               # via django-dynamic-preferences, django-extensions
-sqlparse==0.3.0           # via django
+pillow==6.2.2             # via -r requirements.in/base.txt, easy-thumbnails
+psycopg2==2.8.4           # via -r requirements.in/base.txt
+python-decouple==3.3      # via -r requirements.in/base.txt
+pytz==2019.3              # via django
+six==1.14.0               # via django-dynamic-preferences, django-extensions
+sqlparse==0.3.1           # via django
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools

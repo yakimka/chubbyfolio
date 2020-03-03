@@ -1,4 +1,4 @@
-FROM node:12.9.0
+FROM node:12.16
 
 ARG ENVIRONMENT=production
 ARG VUE_APP_ROOT_API
@@ -10,7 +10,9 @@ WORKDIR /home/node/app
 
 COPY ./package*.json ./
 
+RUN npm install -g @vue/cli@4.2.3
 RUN npm install
+
 COPY . .
 RUN chown -R node /home/node/app
 

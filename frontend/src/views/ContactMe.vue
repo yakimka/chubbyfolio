@@ -148,7 +148,7 @@ export default {
           this.$swal({
             title: 'Сообщение отправлено',
             text: 'Я перезвоню Вам в ближайшее время',
-            type: 'success',
+            icon: 'success',
             confirmButtonText: 'На главную'
           })
             .then((result) => {
@@ -169,13 +169,13 @@ export default {
             this.$swal({
               title: 'Ой',
               text: errorText,
-              type: 'error'
+              icon: 'error'
             });
           }
         });
     },
     clearForm() {
-      for (let field in this.message) {
+      for (const field in this.message) {
         this.message[field] = '';
       }
       this.errors.clear();
@@ -196,7 +196,7 @@ export default {
       });
   },
   mounted() {
-    if (this.$route.query.hasOwnProperty('scroll')) {
+    if (Object.prototype.hasOwnProperty.call(this.$route.query, 'scroll')) {
       this.$scrollTo('#contacts');
     }
   }

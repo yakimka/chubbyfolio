@@ -4,7 +4,7 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 let additionalHeadContend = '';
 if (process.env.NODE_ENV === 'production') {
-  let additionalHeadContendFilePath = 'additional_prod_files/head_content.html';
+  const additionalHeadContendFilePath = 'additional_prod_files/head_content.html';
   if (fs.existsSync(additionalHeadContendFilePath)) {
     additionalHeadContend = fs.readFileSync(additionalHeadContendFilePath, 'utf8');
     additionalHeadContend = additionalHeadContend.replace(/(\r\n|\n|\r)/gm, '');
@@ -25,7 +25,7 @@ module.exports = {
 
     newConfig.plugins.push(
       new webpack.DefinePlugin({
-        'VUE_APP_ADDITIONAL_HEAD_CONTENT': `"${additionalHeadContend}"`
+        VUE_APP_ADDITIONAL_HEAD_CONTENT: `"${additionalHeadContend}"`
       })
     );
 

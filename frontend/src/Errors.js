@@ -6,13 +6,14 @@ class Errors {
   }
 
   has(field) {
-    return this.errors.hasOwnProperty(field);
+    return Object.prototype.hasOwnProperty.call(this.errors, field);
   }
 
   any(fields = null) {
     if (fields) {
-      for (let i in fields) {
-        if (this.errors.hasOwnProperty(fields[i])) {
+      for (const i in fields) {
+        const hasField = Object.prototype.hasOwnProperty.call(this.errors, fields[i]);
+        if (hasField) {
           return true;
         }
       }
@@ -32,8 +33,8 @@ class Errors {
   }
 
   recordByName(fieldName, message) {
-    let error = {
-      [fieldName]: { '0': message }
+    const error = {
+      [fieldName]: { 0: message }
     };
     this.record(error);
   }

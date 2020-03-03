@@ -60,7 +60,7 @@ new Vue({
 
 // add simple support for background images:
 document.addEventListener('lazybeforeunveil', function (e) {
-  let bg = e.target.getAttribute('data-bg');
+  const bg = e.target.getAttribute('data-bg');
   if (bg) {
     e.target.style.backgroundImage = `url(${bg})`;
   }
