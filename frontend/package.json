@@ -45,7 +45,9 @@
     "eslint-plugin-standard": "^4.0.0",
     "eslint-plugin-vue": "^6.1.2",
     "node-sass": "^4.13.1",
+    "pretty-data": "^0.40.0",
     "sass-loader": "^8.0.2",
+    "sitemap-webpack-plugin": "^0.7.1",
     "vue-template-compiler": "^2.6.11"
   }
 }
