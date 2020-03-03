@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const fs = require('fs');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
+const prettydata = require('pretty-data');
 
 let additionalHeadContend = '';
 if (process.env.NODE_ENV === 'production') {
@@ -10,6 +12,17 @@ if (process.env.NODE_ENV === 'production') {
     additionalHeadContend = additionalHeadContend.replace(/(\r\n|\n|\r)/gm, '');
   }
 }
+
+const paths = [
+  '/',
+  '/portfolio',
+  '/contact-me',
+  '/about-me'
+];
+
+const prettyPrint = xml => {
+  return prettydata.pd.xml(xml);
+};
 
 module.exports = {
   css: {
@@ -40,6 +53,15 @@ module.exports = {
             to: '.'
           }
         ])
+      );
+
+      // create sitemap
+      newConfig.plugins.push(
+        new SitemapPlugin(process.env.VUE_APP_SITE_URL, paths, {
+          priority: '0.9',
+          skipGzip: true,
+          formatter: prettyPrint
+        })
       );
     } else {
       newConfig.devtool = 'source-map';
