@@ -1,3 +1,5 @@
+import tempfile
+
 import pytest
 
 from chubbyfolio.test import Factory
@@ -8,12 +10,19 @@ collect_ignore_glob = ['frontend/*']
 
 
 @pytest.fixture
-def factory(db):
+def override_media_root(settings):
+    temp_dir = tempfile.mkdtemp(prefix='chubbyfolio_media')
+    settings.MEDIA_ROOT = temp_dir
+    return temp_dir
+
+
+@pytest.fixture
+def factory(db, override_media_root):
     return Factory
 
 
 @pytest.fixture
-def mixer(db):
+def mixer(db, override_media_root):
     return _mixer
 
 
