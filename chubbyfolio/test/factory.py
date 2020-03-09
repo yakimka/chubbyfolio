@@ -5,6 +5,7 @@ from PIL import Image
 from django.core.files import File
 from mixer.backend.django import mixer
 
+from dynamic_settings.models import MainScreenPhoto
 from photosets.models import Photoset, Photo
 
 
@@ -47,7 +48,7 @@ class Factory:
             photoset.preview.save('image.jpg', preview, save=True)
 
         cls.cycle(create_photos).photo(photoset=photoset)
-        photoset.refresh_from_db()
+
         return photoset
 
     @classmethod
@@ -58,3 +59,15 @@ class Factory:
         photo = mixer.blend('photosets.Photo', image=None, crop=crop, **kwargs)
         photo.image.save('image.jpg', image, save=True)
         return photo
+
+    @classmethod
+    def main_screen_photo(cls, create_image=True, image=None, **kwargs) -> MainScreenPhoto:
+        if image is None:
+            image = cls.image()
+
+        main_screen_photo = mixer.blend('dynamic_settings.MainScreenPhoto', image=None, **kwargs)
+        if create_image:
+            image = File(image)
+            main_screen_photo.image.save('image.jpg', image, save=True)
+
+        return main_screen_photo
