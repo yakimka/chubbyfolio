@@ -4,11 +4,13 @@ ARG ENVIRONMENT=production
 
 ENV PYTHONUNBUFFERED 1
 
-RUN apt-get update && apt-get install jpegoptim
+RUN apt-get update && apt-get install -y \
+  jpegoptim \
+  && rm -rf /var/lib/apt/lists/*
 
 # Requirements have to be pulled and installed here, otherwise caching won't work
 COPY ./backend/requirements/${ENVIRONMENT}.txt /requirements.txt
-RUN pip install -r /requirements.txt \
+RUN pip install --no-cache-dir -r /requirements.txt \
     && groupadd -r django \
     && useradd -r -g django django --uid 1000
 
