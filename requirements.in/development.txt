@@ -1,4 +1,10 @@
 -r base.txt
 
+flake8
 ipython
+mixer
 pip-tools
+pytest
+pytest-cov
+pytest-django
+pytest-mock

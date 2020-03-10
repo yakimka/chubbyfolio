@@ -15,7 +15,7 @@ def upload_photosets_to(instance, filename):
 
 
 def upload_previews_to(instance, filename):
-    return 'uploads/main_screen/slider/{1}'.format(instance.id, filename)
+    return 'uploads/main_screen/slider/{0}'.format(filename)
 
 
 def validate_photoset_photo(image):
@@ -102,7 +102,10 @@ class Photo(models.Model):
         return thumb
 
     def clean(self):
+        # x,y
+        # where x and y is negative or positive integer number
         regexp = r'^-?\d+,-?\d+$'
+
         if self.crop not in ['', 'smart'] and not re.search(regexp, self.crop):
             raise ValidationError(_('Неверный формат поля "crop"'))
         super().clean()

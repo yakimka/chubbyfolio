@@ -21,14 +21,14 @@ class PhotosetList(generics.ListAPIView):
         return queryset
 
 
+class PhotosetDetail(generics.RetrieveAPIView):
+    queryset = Photoset.objects.filter(published=True)
+    serializer_class = PhotosetSerializer
+
+
 class PhotoList(generics.ListAPIView):
     serializer_class = PhotoSerializer
 
     def get_queryset(self):
         pk = self.kwargs.get('pk')
         return Photo.objects.filter(photoset__pk=pk)
-
-
-class PhotosetDetail(generics.RetrieveAPIView):
-    queryset = Photoset.objects.filter(published=True)
-    serializer_class = PhotosetSerializer

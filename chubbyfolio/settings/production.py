@@ -1,6 +1,6 @@
-from .base import *
+from .base import *  # noqa
 
-INSTALLED_APPS += ['gunicorn']
+INSTALLED_APPS += ['gunicorn']  # noqa
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # LOGGING CONFIGURATION
