@@ -49,7 +49,7 @@ services:
     <<: *restart_policy
     container_name: vuejs
     build:
-      context: frontend
+      context: .
       dockerfile: docker_compose/vuejs/Dockerfile
       args:
         - ENVIRONMENT=production
