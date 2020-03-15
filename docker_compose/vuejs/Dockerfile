@@ -8,12 +8,12 @@ ARG VUE_APP_PHONE_NUMBER
 
 WORKDIR /home/node/app
 
-COPY ./package*.json ./
+COPY ./frontend/package*.json ./
 
-RUN npm install -g @vue/cli@4.2.3
+#RUN npm install -g @vue/cli@4.2.3
 RUN npm install
 
-COPY . .
+COPY ./frontend .
 RUN chown -R node /home/node/app
 
 COPY docker_compose/vuejs/${ENVIRONMENT}/start.sh /start.sh

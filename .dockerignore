@@ -16,6 +16,8 @@ __pycache__
 staticfiles
 static_cdn
 media_cdn
+/backend/media
+/frontend/dist
 
 # Ignore sqlite
 db.sqlite3
@@ -26,7 +28,5 @@ db.sqlite3
 # Apple files
 .DS_Store
 
-#frontend
-/frontend
-
-/static
+# node modeules
+node_modules
