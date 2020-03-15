@@ -5,6 +5,10 @@ from rest_framework.reverse import reverse
 URL = reverse('dynamic_settings_list')
 
 
+def test_url():
+    assert '/api/dynamic-settings/' == URL
+
+
 @pytest.fixture
 def global_preferences():
     global_preferences = global_preferences_registry.manager()

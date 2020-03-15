@@ -15,7 +15,7 @@ urlpatterns = [
     path('flf7eiu2ocn/', admin.site.urls),
     path('api/', include([
         path('', include(router.urls)),
-        path('dynamic-settings/', include('dynamic_settings.urls'), name='dynamic_settings'),
+        path('dynamic-settings/', include('dynamic_settings.api.urls'), name='dynamic_settings'),
     ]), name='api')
 ]
 
