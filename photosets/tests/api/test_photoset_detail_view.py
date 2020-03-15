@@ -2,7 +2,11 @@ from functools import partial
 
 from rest_framework.reverse import reverse
 
-url_func = partial(reverse, 'photoset_detail')
+url_func = partial(reverse, 'photoset-detail')
+
+
+def test_url():
+    assert '/api/photosets/1/' == url_func([1])
 
 
 def test_view(factory, api):

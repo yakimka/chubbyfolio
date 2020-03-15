@@ -1,7 +1,11 @@
 import pytest
 from rest_framework.reverse import reverse
 
-URL = reverse('feedback_message_create')
+URL = reverse('message-list')
+
+
+def test_url():
+    assert '/api/feedback/message/' == URL
 
 
 def test_empty_request_body(api):

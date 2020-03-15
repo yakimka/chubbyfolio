@@ -3,7 +3,11 @@ from functools import partial
 import pytest
 from rest_framework.reverse import reverse
 
-url_func = partial(reverse, 'photoset_photos')
+url_func = partial(reverse, 'photoset-photos')
+
+
+def test_url():
+    assert '/api/photosets/1/photos/' == url_func([1])
 
 
 @pytest.mark.parametrize('count', [
