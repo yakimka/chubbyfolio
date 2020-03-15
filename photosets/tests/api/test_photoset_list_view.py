@@ -1,7 +1,11 @@
 import pytest
 from rest_framework.reverse import reverse
 
-URL = reverse('photoset_list')
+URL = reverse('photoset-list')
+
+
+def test_url():
+    assert '/api/photosets/' == URL
 
 
 @pytest.mark.parametrize('count', [
