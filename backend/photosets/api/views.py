@@ -27,8 +27,16 @@ class PhotosetViewSet(viewsets.ReadOnlyModelViewSet):
 
         page = self.paginate_queryset(photos)
         if page is not None:
-            serializer = PhotoSerializer(page, many=True)
+            serializer = PhotoSerializer(
+                page,
+                many=True,
+                context=self.get_serializer_context()
+            )
             return self.get_paginated_response(serializer.data)
 
-        serializer = PhotoSerializer(photos, many=True)
+        serializer = PhotoSerializer(
+            photos,
+            many=True,
+            context=self.get_serializer_context()
+        )
         return Response(serializer.data)
