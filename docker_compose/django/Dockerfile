@@ -1,4 +1,4 @@
-FROM python:3.7
+FROM python:3.9
 
 ARG ENVIRONMENT=production
 
@@ -12,7 +12,6 @@ RUN pip install -r /requirements.txt \
     && groupadd -r django \
     && useradd -r -g django django --uid 1000
 
-RUN mkdir -p /app/static
 WORKDIR /app
 COPY ./backend .
 
@@ -24,7 +23,12 @@ RUN sed -i 's/\r$//g' /start.sh \
     && chmod +x /start.sh \
     && chown django /start.sh
 
-RUN chown -R django /app
+COPY --from=chubbyfolio-frontend:latest /home/node/app/dist /app/frontend
+RUN mkdir -p /app/public/{media,static}
+COPY ./docker_compose/django/collectfrontend.py /app/collectfrontend.py
+
+RUN chown -R django:django /app
+
 
 EXPOSE 8000
 
