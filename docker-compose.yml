@@ -23,7 +23,7 @@ services:
     depends_on:
       - postgres
     env_file: .env
-    image: chubbyfolio:latest
+    image: yakim/chubbyfolio:latest
     hostname: django
     networks:
       - main
