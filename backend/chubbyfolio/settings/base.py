@@ -149,10 +149,10 @@ STATIC_URL = '/static/'
 
 ##############################################################################
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'public', 'static')
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'public', 'media')
 
 FILE_UPLOAD_PERMISSIONS = 0o644
 
@@ -177,7 +177,8 @@ REST_FRAMEWORK = {
     'DEFAULT_THROTTLE_RATES': {
         'anon': '500/minute',
         'message': '20/hour',
-    }
+    },
+    'DEFAULT_AUTHENTICATION_CLASSES': []
 }
 
 CORS_ORIGIN_WHITELIST = config(

@@ -1,0 +1,38 @@
+name: build
+
+on: [push]
+
+jobs:
+  checks:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.9
+        uses: actions/setup-python@v1
+        with:
+          python-version: "3.9"
+      - name: Prepare
+        run: |
+          cp env.ci .env && cp env.ci backend/.env
+          docker-compose up -d postgres
+          pip install -r backend/requirements/development.txt
+      - name: Run checks
+        run: |
+          export DJANGO_SETTINGS_MODULE=chubbyfolio.settings.development
+          make flake
+          make coverage
+
+      - name: Build docker image
+        run: |
+          docker build -t chubbyfolio-frontend:latest -f docker_compose/vuejs/Dockerfile .
+          docker-compose build django
+
+      - name: Push docker image
+        if: github.ref == 'refs/heads/master'
+        uses: docker/login-action@v1
+        with:
+          username: yakim
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Push images
+        if: github.ref == 'refs/heads/master'
+        run: docker push yakim/chubbyfolio --all-tags

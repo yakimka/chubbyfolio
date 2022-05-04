@@ -13,12 +13,3 @@ services:
   postgres:
     ports:
       - '5432:5432'
-
-  vuejs:
-    build:
-      args:
-        ENVIRONMENT: development
-    ports:
-      - '8080:8080'
-    volumes:
-      - './frontend/:/home/node/app/'

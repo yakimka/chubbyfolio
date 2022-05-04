@@ -12,7 +12,7 @@ router.register(r'photosets', PhotosetViewSet, basename='photoset')
 router.register(r'feedback/message', MessageViewSet, basename='message')
 
 urlpatterns = [
-    path('flf7eiu2ocn/', admin.site.urls),
+    path('admin/flf7eiu2ocn/', admin.site.urls),
     path('api/', include([
         path('', include(router.urls)),
         path('dynamic-settings/', include('dynamic_settings.api.urls'), name='dynamic_settings'),

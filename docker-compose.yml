@@ -23,12 +23,12 @@ services:
     depends_on:
       - postgres
     env_file: .env
-    image: django-image
+    image: chubbyfolio:latest
     hostname: django
     networks:
       - main
     volumes:
-      - './media/:/app/media/'
+      - './public/:/app/public/'
 
   postgres:
     <<: *restart_policy
@@ -45,19 +45,11 @@ services:
       - 'postgres_data:/var/lib/postgresql/data'
       - 'postgres_backup:/backups'
 
-  vuejs:
-    <<: *restart_policy
-    container_name: vuejs
-    build:
-      context: .
-      dockerfile: docker_compose/vuejs/Dockerfile
-      args:
-        - ENVIRONMENT=production
-        - VUE_APP_ROOT_API
-        - VUE_APP_SITE_URL
-        - VUE_APP_SITE_NAME
-        - VUE_APP_PHONE_NUMBER
-    env_file: .env
-    hostname: vuejs
-    networks:
-      - main
+#  vuejs:
+#    restart: 'no'
+#    image: chubbyfolio-frontend
+#    build:
+#      context: .
+#      dockerfile: docker_compose/vuejs/Dockerfile
+#      args:
+#        - ENVIRONMENT=production

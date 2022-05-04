@@ -3,9 +3,6 @@ version: '3.4'
 x-restart-policy: &restart_policy
   restart: unless-stopped
 
-volumes:
-  static: {}
-
 services:
   django:
     <<: *restart_policy
@@ -16,7 +13,7 @@ services:
       args:
         ENVIRONMENT: production
     volumes:
-      - 'static:/app/static/'
+      - './public:/app/public/'
 
   nginx:
     <<: *restart_policy
@@ -29,26 +26,15 @@ services:
     command: 'wait-for-it django:5000 -- nginx -g "daemon off;"'
     depends_on:
       - django
-      - vuejs
     networks:
       - main
     volumes:
-      - 'static:/static:ro'
-      - './media/:/media:ro'
+      - './public/:/usr/share/nginx/html:ro'
       - './data/ssl/conf:/etc/ssl'
       - './data/ssl/www:/var/www/certbot'
     ports:
-      - '0.0.0.0:8000:8000'
       - '0.0.0.0:80:80'
       - '0.0.0.0:443:443'
 
   postgres:
     <<: *restart_policy
-
-  vuejs:
-    restart: 'no'
-    image: vuejs-image
-    build:
-      args:
-        ENVIRONMENT: production
-    command: '/bin/true'

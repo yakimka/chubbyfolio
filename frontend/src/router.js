@@ -1,9 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
+import config from './config';
 
 Vue.use(Router);
 
-const SiteName = process.env.VUE_APP_SITE_NAME;
+const SiteName = config.VUE_APP_SITE_NAME;
 const DefaultNameForTitle = SiteName !== undefined ? ` | ${SiteName}` : '';
 
 export default new Router({

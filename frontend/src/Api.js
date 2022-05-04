@@ -1,6 +1,7 @@
 import axios from 'axios';
+import config from './config';
 
-axios.defaults.baseURL = process.env.VUE_APP_ROOT_API;
+axios.defaults.baseURL = config.VUE_APP_ROOT_API;
 
 export default {
   getPhotosets() {

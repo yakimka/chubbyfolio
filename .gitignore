@@ -82,6 +82,7 @@ dmypy.json
 /media
 /static
 /data
+public
 
 .env
 .env.*.local
