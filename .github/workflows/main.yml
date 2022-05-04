@@ -25,7 +25,7 @@ jobs:
       - name: Build docker image
         run: |
           docker build -t chubbyfolio-frontend:latest -f docker_compose/vuejs/Dockerfile .
-          docker-compose build django
+          docker-compose -f docker-compose.yml -f docker-compose.production.yml build django
 
       - name: Push docker image
         if: github.ref == 'refs/heads/master'
